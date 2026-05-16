@@ -7,6 +7,7 @@ let currentConstitutionId = null
 let userBodyInfo = null
 let quizScores = null
 let selectedMonth = null
+let propertyFilter = 'all'
 
 function init() {
   loadBodyInfo()
@@ -14,6 +15,9 @@ function init() {
   renderConstiList()
   renderSeasonView()
   renderMiniSeasonBanner()
+  renderDailyFood()
+  renderCheckIn()
+  renderSolarTerm()
   updateTabBar()
   renderHomeGreeting()
 }
@@ -30,6 +34,8 @@ function restoreAppState() {
       if (state.currentResultTab) currentResultTab = state.currentResultTab
       if (state.currentConstitutionId) currentConstitutionId = state.currentConstitutionId
       if (state.currentFilter) currentFilter = state.currentFilter
+      if (state.propertyFilter) propertyFilter = state.propertyFilter
+      if (state.selectedMonth) selectedMonth = state.selectedMonth
       if (state.currentTheme) {
         document.documentElement.setAttribute('data-theme', state.currentTheme)
       }
@@ -47,6 +53,8 @@ function saveAppState() {
       currentResultTab,
       currentConstitutionId,
       currentFilter,
+      propertyFilter,
+      selectedMonth,
       currentTheme: document.documentElement.getAttribute('data-theme') || ''
     }
     localStorage.setItem('appState', JSON.stringify(state))
@@ -55,8 +63,9 @@ function saveAppState() {
 
 function renderMiniSeasonBanner() {
   const rec = getTodayRecommendation()
+  const term = getCurrentSolarTerm()
   const el = document.getElementById('homeSeasonBanner')
-  if (el) el.innerHTML = `🌸 ${rec.season} · ${rec.principle}`
+  if (el) el.innerHTML = `🌸 ${rec.season} · ${rec.principle}${term ? ` · 🌏 ${term.name}` : ''}`
 }
 
 function loadBodyInfo() {
@@ -127,8 +136,16 @@ function switchTab(viewId, btn) {
   if (viewId === 'viewFoodSearch') {
     if (currentResult) {
       currentFilter = 'suitable'
-      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'))
+      document.querySelectorAll('#foodFilterChips .chip').forEach(c => c.classList.remove('active'))
       document.querySelector('.chip[data-filter="suitable"]').classList.add('active')
+    }
+    document.querySelectorAll('#propertyFilterChips .chip').forEach(c => c.classList.remove('active'))
+    if (propertyFilter !== 'all') {
+      const propChip = document.querySelector(`.chip[data-prop="${propertyFilter}"]`)
+      if (propChip) propChip.classList.add('active')
+    } else {
+      const allChip = document.querySelector(`.chip[data-prop="all"]`)
+      if (allChip) allChip.classList.add('active')
     }
     renderFoodList(currentFilter)
   }
@@ -140,6 +157,99 @@ function renderHomeGreeting() {
   document.getElementById('homeAvatar').textContent = '🌿'
   document.getElementById('homeGreeting').textContent = '今天也要好好吃饭'
   document.getElementById('homeSub').textContent = 'AI体质辨识 + 中医食疗，科学健康养生'
+}
+
+function renderDailyFood() {
+  const container = document.getElementById('dailyFoodCard')
+  const today = new Date()
+  const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000)
+  const foodIndex = dayOfYear % FOOD_DATABASE.length
+  const food = FOOD_DATABASE[foodIndex]
+  const propIcons = { '寒': '❄️', '凉': '❄️', '平': '⚪', '温': '🔥', '热': '🔥', '微温': '🔥', '微寒': '❄️' }
+  container.innerHTML = `
+    <div class="daily-food-card">
+      <div class="daily-food-header">
+        <span class="daily-food-label">📅 今日推荐食材</span>
+        <span class="daily-food-name">${food.name}</span>
+        <span class="daily-food-tags">
+          <span class="tag ${food.property === '寒' ? 'tag-cold' : food.property === '凉' ? 'tag-cool' : food.property === '平' ? 'tag-neutral' : 'tag-warm'}">
+            ${propIcons[food.property] || '⚪'} ${food.property}性
+          </span>
+          <span class="tag tag-default">${food.flavor}味</span>
+        </span>
+      </div>
+      <div class="daily-food-effect">${food.effect}</div>
+      <div class="daily-food-suggestion">💡 ${food.suggestion}</div>
+    </div>
+  `
+}
+
+function renderCheckIn() {
+  const container = document.getElementById('checkinSection')
+  const today = new Date().toDateString()
+  let checkinData = { days: [], streak: 0 }
+  try {
+    const saved = localStorage.getItem('checkinData')
+    if (saved) checkinData = JSON.parse(saved)
+  } catch (e) {}
+  const checkedIn = checkinData.days.includes(today)
+  const dayCount = checkinData.days.length
+  document.getElementById('checkinDays').textContent = dayCount
+
+  container.innerHTML = `
+    <div class="checkin-card ${checkedIn ? 'checked' : ''}">
+      <div class="checkin-info">
+        <span class="checkin-icon">${checkedIn ? '✅' : '📌'}</span>
+        <span>${checkedIn ? '今日已打卡' : '今日养生打卡'}</span>
+        <span class="checkin-streak">🔥 连续 ${checkinData.streak} 天</span>
+      </div>
+      ${checkedIn ? '' : '<button class="btn btn-primary btn-sm" onclick="doCheckIn()">打卡</button>'}
+    </div>
+  `
+}
+
+function doCheckIn() {
+  const today = new Date().toDateString()
+  let checkinData = { days: [], streak: 0 }
+  try {
+    const saved = localStorage.getItem('checkinData')
+    if (saved) checkinData = JSON.parse(saved)
+  } catch (e) {}
+  if (checkinData.days.includes(today)) return
+  checkinData.days.push(today)
+  const yesterday = new Date(Date.now() - 86400000).toDateString()
+  checkinData.streak = checkinData.days.includes(yesterday) ? checkinData.streak + 1 : 1
+  localStorage.setItem('checkinData', JSON.stringify(checkinData))
+  renderCheckIn()
+}
+
+function renderSolarTerm() {
+  const container = document.getElementById('solarTermSection')
+  const term = getCurrentSolarTerm()
+  if (!term) { container.innerHTML = ''; return }
+  container.innerHTML = `
+    <div class="solar-term-card">
+      <div class="solar-term-title">🌏 今日节气 · ${term.name}</div>
+      <div class="solar-term-tip">${term.tip}</div>
+      <div class="solar-term-foods">
+        ${term.foods.map(f => `<span>${f}</span>`).join('')}
+      </div>
+    </div>
+  `
+}
+
+function shareConstitution() {
+  if (!currentResult) {
+    alert('请先完成体质测试')
+    return
+  }
+  const c = getConstitutionById(currentResult.id)
+  const text = `我的中医体质是 ${c.emoji} ${c.name}！${c.description}\n\n推荐食材：${c.suitable.slice(0, 5).join('、')}\n\n来测测你的体质吧 ➡️ ${window.location.href}`
+  if (navigator.share) {
+    navigator.share({ title: '我的中医体质报告', text }).catch(() => {})
+  } else {
+    navigator.clipboard.writeText(text).then(() => alert('体质报告已复制，快去分享给朋友吧！')).catch(() => {})
+  }
 }
 
 // ============ CONSTITUTION LIST ============
@@ -458,13 +568,28 @@ function renderResultContent(tab) {
         <div class="card">
           <div class="card-title">🍳 推荐食疗方案</div>
           <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;line-height:1.7;">${c.principleDetail}</p>
-          ${c.recommendFoods.slice(0, 3).map(f => `
-            <div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;display:flex;align-items:center;gap:8px;">
-              <span style="color:var(--primary);">▸</span>
-              <span style="color:var(--text-secondary);">${f}</span>
-              <span style="color:var(--text-muted);font-size:12px;margin-left:auto;">适合${c.name}</span>
-            </div>
-          `).join('')}
+          ${c.recommendFoods.map(f => {
+            const recipe = RECIPES[f]
+            if (!recipe) return `
+              <div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;display:flex;align-items:center;gap:8px;">
+                <span style="color:var(--primary);">▸</span>
+                <span style="color:var(--text-secondary);">${f}</span>
+                <span style="color:var(--text-muted);font-size:12px;margin-left:auto;">适合${c.name}</span>
+              </div>
+            `
+            return `
+              <div class="recipe-detail-card">
+                <div class="recipe-detail-name">🍲 ${f}</div>
+                <div class="recipe-detail-ingredients">
+                  <strong>食材：</strong>${recipe.ingredients.join('、')}
+                </div>
+                <div class="recipe-detail-steps">
+                  <strong>做法：</strong>
+                  <ol>${recipe.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+                </div>
+              </div>
+            `
+          }).join('')}
         </div>
         <div class="card">
           <div class="card-title">📜 理论依据</div>
@@ -641,9 +766,21 @@ function renderFoodCard(f) {
 
 function filterFoods(filter) {
   currentFilter = filter
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'))
+  document.querySelectorAll('#foodFilterChips .chip').forEach(c => c.classList.remove('active'))
   document.querySelector(`.chip[data-filter="${filter}"]`).classList.add('active')
   renderFoodList(filter)
+  saveAppState()
+}
+
+function filterByProperty(prop) {
+  propertyFilter = prop
+  document.querySelectorAll('#propertyFilterChips .chip').forEach(c => c.classList.remove('active'))
+  if (prop !== 'all') {
+    document.querySelector(`.chip[data-prop="${prop}"]`).classList.add('active')
+  } else {
+    document.querySelector(`.chip[data-prop="all"]`).classList.add('active')
+  }
+  renderFoodList(currentFilter)
   saveAppState()
 }
 
@@ -653,6 +790,9 @@ function renderFoodList(filter) {
     filtered = FOOD_DATABASE.filter(f => f.suitable.includes(currentResult.id))
   } else if (currentResult && filter === 'avoid') {
     filtered = FOOD_DATABASE.filter(f => f.avoid.includes(currentResult.id))
+  }
+  if (propertyFilter !== 'all') {
+    filtered = filtered.filter(f => f.property.includes(propertyFilter))
   }
 
   const container = document.getElementById('foodResults')
@@ -846,8 +986,16 @@ function goToFoodSearch() {
   document.querySelector('.tab-item[data-view="viewFoodSearch"]').classList.add('active')
   if (currentResult) {
     currentFilter = 'suitable'
-    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'))
+    document.querySelectorAll('#foodFilterChips .chip').forEach(c => c.classList.remove('active'))
     document.querySelector('.chip[data-filter="suitable"]').classList.add('active')
+  }
+  document.querySelectorAll('#propertyFilterChips .chip').forEach(c => c.classList.remove('active'))
+  if (propertyFilter !== 'all') {
+    const propChip = document.querySelector(`.chip[data-prop="${propertyFilter}"]`)
+    if (propChip) propChip.classList.add('active')
+  } else {
+    const allChip = document.querySelector(`.chip[data-prop="all"]`)
+    if (allChip) allChip.classList.add('active')
   }
   showView('viewFoodSearch')
   renderFoodList(currentFilter)

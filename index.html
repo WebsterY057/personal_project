@@ -32,18 +32,26 @@
 
         <div class="stats-row" id="homeStats">
           <div class="stat-item">
-            <div class="stat-num">9</div>
-            <div class="stat-label">中医体质</div>
+            <div class="stat-num">60+</div>
+            <div class="stat-label">食材库</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num">32</div>
-            <div class="stat-label">食材库</div>
+            <div class="stat-num">9</div>
+            <div class="stat-label">中医体质</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">4</div>
             <div class="stat-label">应季养生</div>
           </div>
+          <div class="stat-item">
+            <div class="stat-num" id="checkinDays">0</div>
+            <div class="stat-label">打卡天数</div>
+          </div>
         </div>
+
+        <div id="dailyFoodCard"></div>
+        <div id="checkinSection"></div>
+        <div id="solarTermSection"></div>
 
         <div class="feature-grid">
           <div class="feature-item" onclick="startQuiz()">
@@ -160,6 +168,9 @@
           <button class="btn btn-primary" onclick="goToFoodSearch()">🔍 查询食材营养属性</button>
         </div>
         <div class="bottom-action">
+          <button class="btn btn-outline" onclick="shareConstitution()">📤 分享我的体质报告</button>
+        </div>
+        <div class="bottom-action">
           <button class="btn btn-secondary" onclick="startQuiz()">🔄 重新测试</button>
         </div>
       </div>
@@ -177,6 +188,14 @@
             <div class="chip active" data-filter="all" onclick="filterFoods('all')">全部</div>
             <div class="chip" data-filter="suitable" onclick="filterFoods('suitable')">✅ 宜食</div>
             <div class="chip" data-filter="avoid" onclick="filterFoods('avoid')">❌ 慎食</div>
+          </div>
+          <div class="filter-chips" id="propertyFilterChips" style="margin-top:6px;">
+            <div class="chip active" data-prop="all" onclick="filterByProperty('all')">温寒不限制</div>
+            <div class="chip" data-prop="热" onclick="filterByProperty('热')">🔥 热</div>
+            <div class="chip" data-prop="温" onclick="filterByProperty('温')">🔥 温</div>
+            <div class="chip" data-prop="平" onclick="filterByProperty('平')">⚪ 平</div>
+            <div class="chip" data-prop="凉" onclick="filterByProperty('凉')">❄️ 凉</div>
+            <div class="chip" data-prop="寒" onclick="filterByProperty('寒')">❄️ 寒</div>
           </div>
         </div>
         <div id="foodResults">

@@ -759,4 +759,82 @@ select.body-info-input {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .view.active { animation: fadeIn 0.35s ease; }
 
+.btn-outline {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+.daily-food-card {
+  background: linear-gradient(135deg, var(--bg-card), rgba(139,170,122,0.06));
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.daily-food-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.daily-food-label { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+.daily-food-name { font-size: 18px; font-weight: 700; color: var(--text); }
+.daily-food-tags { margin-left: auto; display: flex; gap: 4px; }
+.daily-food-effect { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
+.daily-food-suggestion { font-size: 12px; color: var(--accent); }
+
+.checkin-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.checkin-card.checked { border-color: var(--accent); background: rgba(168,201,154,0.06); }
+.checkin-info { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+.checkin-icon { font-size: 16px; }
+.checkin-streak { font-size: 11px; color: var(--warm); margin-left: 4px; }
+
+.solar-term-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.solar-term-title { font-size: 13px; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+.solar-term-tip { font-size: 12px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+.solar-term-foods { display: flex; gap: 6px; flex-wrap: wrap; }
+.solar-term-foods span {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.recipe-detail-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.recipe-detail-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.recipe-detail-ingredients { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.6; }
+.recipe-detail-steps { font-size: 12px; color: var(--text-secondary); }
+.recipe-detail-steps ol { padding-left: 18px; margin-top: 4px; }
+.recipe-detail-steps li { margin-bottom: 4px; line-height: 1.6; }
+
 ::-webkit-scrollbar { width: 0; }
