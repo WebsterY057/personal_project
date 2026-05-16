@@ -8,6 +8,7 @@ let userBodyInfo = null
 let quizScores = null
 let selectedMonth = null
 let propertyFilter = 'all'
+let meridianFilter = 'all'
 
 function init() {
   loadBodyInfo()
@@ -35,6 +36,7 @@ function restoreAppState() {
       if (state.currentConstitutionId) currentConstitutionId = state.currentConstitutionId
       if (state.currentFilter) currentFilter = state.currentFilter
       if (state.propertyFilter) propertyFilter = state.propertyFilter
+      if (state.meridianFilter) meridianFilter = state.meridianFilter
       if (state.selectedMonth) selectedMonth = state.selectedMonth
       if (state.currentTheme) {
         document.documentElement.setAttribute('data-theme', state.currentTheme)
@@ -54,6 +56,7 @@ function saveAppState() {
       currentConstitutionId,
       currentFilter,
       propertyFilter,
+      meridianFilter,
       selectedMonth,
       currentTheme: document.documentElement.getAttribute('data-theme') || ''
     }
@@ -147,6 +150,14 @@ function switchTab(viewId, btn) {
       const allChip = document.querySelector(`.chip[data-prop="all"]`)
       if (allChip) allChip.classList.add('active')
     }
+    document.querySelectorAll('#meridianFilterChips .chip').forEach(c => c.classList.remove('active'))
+    if (meridianFilter !== 'all') {
+      const merChip = document.querySelector(`.chip[data-meridian="${meridianFilter}"]`)
+      if (merChip) merChip.classList.add('active')
+    } else {
+      const allMerChip = document.querySelector(`.chip[data-meridian="all"]`)
+      if (allMerChip) allMerChip.classList.add('active')
+    }
     renderFoodList(currentFilter)
   }
   if (viewId === 'viewProfile') renderProfileView()
@@ -163,13 +174,30 @@ function renderDailyFood() {
   const container = document.getElementById('dailyFoodCard')
   const today = new Date()
   const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000)
-  const foodIndex = dayOfYear % FOOD_DATABASE.length
-  const food = FOOD_DATABASE[foodIndex]
+  let food, label
+  if (currentResult) {
+    const suitable = FOOD_DATABASE.filter(f => f.suitable.includes(currentResult.id))
+    if (suitable.length > 0) {
+      food = suitable[dayOfYear % suitable.length]
+      label = `🧬 根据${currentResult.name}推荐`
+    } else {
+      food = FOOD_DATABASE[dayOfYear % FOOD_DATABASE.length]
+      label = '📅 今日推荐食材'
+    }
+  } else {
+    food = FOOD_DATABASE[dayOfYear % FOOD_DATABASE.length]
+    label = '📅 今日推荐食材'
+  }
+  const favs = getFavorites()
+  const isFav = favs.foods.includes(food.name)
   const propIcons = { '寒': '❄️', '凉': '❄️', '平': '⚪', '温': '🔥', '热': '🔥', '微温': '🔥', '微寒': '❄️' }
   container.innerHTML = `
     <div class="daily-food-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="daily-food-label">${label}</span>
+        <span onclick="toggleFoodFavorite('${food.name}')" style="cursor:pointer;font-size:18px;color:${isFav ? 'var(--warm)' : 'var(--text-muted)'};">${isFav ? '★' : '☆'}</span>
+      </div>
       <div class="daily-food-header">
-        <span class="daily-food-label">📅 今日推荐食材</span>
         <span class="daily-food-name">${food.name}</span>
         <span class="daily-food-tags">
           <span class="tag ${food.property === '寒' ? 'tag-cold' : food.property === '凉' ? 'tag-cool' : food.property === '平' ? 'tag-neutral' : 'tag-warm'}">
@@ -236,6 +264,28 @@ function renderSolarTerm() {
       </div>
     </div>
   `
+}
+
+function getFavorites() {
+  try { return JSON.parse(localStorage.getItem('favorites')) || { foods: [], recipes: [] } }
+  catch (e) { return { foods: [], recipes: [] } }
+}
+
+function saveFavorites(favs) {
+  localStorage.setItem('favorites', JSON.stringify(favs))
+}
+
+function toggleFoodFavorite(name) {
+  const favs = getFavorites()
+  const idx = favs.foods.indexOf(name)
+  if (idx >= 0) { favs.foods.splice(idx, 1) } else { favs.foods.push(name) }
+  saveFavorites(favs)
+  // Re-render all visible food cards
+  const container = document.getElementById('foodResults')
+  if (container && container.querySelector('.food-result-card')) {
+    renderFoodList(currentFilter)
+  }
+  renderDailyFood()
 }
 
 function shareConstitution() {
@@ -695,7 +745,9 @@ function searchFood() {
   const query = input.value.trim()
   if (!query) return
 
-  const results = FOOD_DATABASE.filter(f => f.name.includes(query))
+  const results = FOOD_DATABASE.filter(f =>
+    f.name.includes(query) || f.effect.includes(query) || f.mechanism.includes(query) || (f.nutrition && f.nutrition.includes(query))
+  )
   const foodResults = document.getElementById('foodResults')
 
   if (results.length === 0) {
@@ -740,11 +792,17 @@ function renderFoodCard(f) {
     }
   }
 
+  const favs = getFavorites()
+  const isFav = favs.foods.includes(f.name)
+
   return `
     <div class="food-result-card">
       <div style="display:flex;justify-content:space-between;align-items:start;">
         <div class="food-name">${f.name}</div>
-        ${suitability}
+        <div style="display:flex;align-items:center;gap:6px;">
+          ${suitability}
+          <span onclick="toggleFoodFavorite('${f.name}')" style="cursor:pointer;font-size:18px;color:${isFav ? 'var(--warm)' : 'var(--text-muted)'};">${isFav ? '★' : '☆'}</span>
+        </div>
       </div>
       <div class="property-tags">
         <span class="tag ${propClass}">${f.property}性</span>
@@ -784,15 +842,33 @@ function filterByProperty(prop) {
   saveAppState()
 }
 
+function filterByMeridian(meridian) {
+  meridianFilter = meridian
+  document.querySelectorAll('#meridianFilterChips .chip').forEach(c => c.classList.remove('active'))
+  if (meridian !== 'all') {
+    document.querySelector(`.chip[data-meridian="${meridian}"]`).classList.add('active')
+  } else {
+    document.querySelector(`.chip[data-meridian="all"]`).classList.add('active')
+  }
+  renderFoodList(currentFilter)
+  saveAppState()
+}
+
 function renderFoodList(filter) {
   let filtered = [...FOOD_DATABASE]
   if (currentResult && filter === 'suitable') {
     filtered = FOOD_DATABASE.filter(f => f.suitable.includes(currentResult.id))
   } else if (currentResult && filter === 'avoid') {
     filtered = FOOD_DATABASE.filter(f => f.avoid.includes(currentResult.id))
+  } else if (filter === 'favorite') {
+    const favs = getFavorites()
+    filtered = FOOD_DATABASE.filter(f => favs.foods.includes(f.name))
   }
   if (propertyFilter !== 'all') {
     filtered = filtered.filter(f => f.property.includes(propertyFilter))
+  }
+  if (meridianFilter !== 'all') {
+    filtered = filtered.filter(f => f.meridian.includes(meridianFilter))
   }
 
   const container = document.getElementById('foodResults')
@@ -996,6 +1072,14 @@ function goToFoodSearch() {
   } else {
     const allChip = document.querySelector(`.chip[data-prop="all"]`)
     if (allChip) allChip.classList.add('active')
+  }
+  document.querySelectorAll('#meridianFilterChips .chip').forEach(c => c.classList.remove('active'))
+  if (meridianFilter !== 'all') {
+    const merChip = document.querySelector(`.chip[data-meridian="${meridianFilter}"]`)
+    if (merChip) merChip.classList.add('active')
+  } else {
+    const allMerChip = document.querySelector(`.chip[data-meridian="all"]`)
+    if (allMerChip) allMerChip.classList.add('active')
   }
   showView('viewFoodSearch')
   renderFoodList(currentFilter)

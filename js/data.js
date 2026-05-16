@@ -800,6 +800,230 @@ const FOOD_DATABASE = [
     pairing: '宜配姜（暖宫驱寒经典）、红枣（补血养颜）、山楂（活血调经）。经期饮用最佳。',
     mechanism: '《本草纲目》："红糖利脾缓肝，补血活血。"未精炼工艺保留了甘蔗中的矿物质，铁含量高于白糖。温中散寒特性可改善痛经，活血化瘀促进经血排出。',
     suitable: ['xueyu', 'yangxu', 'qixu'], avoid: ['shire', 'tanshi'], suggestion: '糖尿病及湿热体质不宜'
+  },
+  {
+    name: '鲈鱼', type: '水产', property: '平', flavor: '甘', meridian: '脾胃肝肾',
+    effect: '益脾胃、补肝肾、安胎',
+    nutrition: '富含优质蛋白（每100g含18.6g）、DHA、EPA、钙、磷、硒。低脂高蛋白。',
+    pairing: '宜配豆腐（钙吸收增效）、姜丝（去腥温中）、葱（增香提鲜）。清蒸最宜。',
+    mechanism: '《本草纲目》："鲈鱼，补五脏，益筋骨，和肠胃。"DHA含量居鱼类前列，有助脑发育。高蛋白低脂肪结构易被人体吸收，尤宜术后恢复。',
+    suitable: ['qixu', 'yinxu', 'pinghe'], avoid: ['tanshi'], suggestion: '痛风急性期慎食'
+  },
+  {
+    name: '南瓜', type: '蔬菜', property: '温', flavor: '甘', meridian: '脾胃',
+    effect: '补中益气、解毒消肿',
+    nutrition: '富含β-胡萝卜素（每100g含3100μg）、维生素C、钴、膳食纤维。热量仅22kcal。',
+    pairing: '宜配小米（健脾养胃）、红枣（补气养血）、山药（增强补益）。蒸煮最宜。',
+    mechanism: '《本草纲目》："南瓜入脾胃经，补中益气。"钴是维生素B12的核心成分，促进造血功能。南瓜多糖可调节免疫、辅助降血糖。',
+    suitable: ['qixu', 'yangxu', 'tebing'], avoid: ['yinxu', 'shire'], suggestion: '湿热体质少食'
+  },
+  {
+    name: '鸡蛋', type: '禽蛋', property: '平', flavor: '甘', meridian: '心肺',
+    effect: '滋阴润燥、养血安神',
+    nutrition: '富含优质蛋白（每100g含13g）、卵磷脂、维生素A、D、B12。蛋黄含叶黄素。',
+    pairing: '宜配番茄（黄金搭档，提高茄红素吸收）、韭菜（温阳互补）、银耳（滋阴润燥）。',
+    mechanism: '《本草便读》："鸡子内黄外白，入心肺，宁神定魄。"卵磷脂是细胞膜重要组分，促进神经发育。叶黄素保护视网膜，预防黄斑变性。',
+    suitable: ['qixu', 'yinxu', 'pinghe'], avoid: ['tanshi'], suggestion: '痰湿体质宜去蛋黄食用'
+  },
+  {
+    name: '排骨', type: '畜肉', property: '平', flavor: '甘咸', meridian: '脾胃肾',
+    effect: '滋阴壮骨、补血益气',
+    nutrition: '富含蛋白质（每100g瘦肉含18g）、钙、磷、骨胶原、维生素B1。',
+    pairing: '宜配莲藕（清热滋阴）、萝卜（助消化）、冬瓜（清热利水）。慢炖使骨胶原溶出。',
+    mechanism: '《本草备要》："猪肉补脾气，润肠胃。"骨胶原经慢炖转化为明胶，促进关节健康。丰富的磷酸钙有助骨骼发育，尤宜成长期儿童。',
+    suitable: ['qixu', 'yinxu', 'pinghe'], avoid: ['tanshi'], suggestion: '痰湿肥胖者宜选瘦排去油炖煮'
+  },
+  {
+    name: '青椒', type: '蔬菜', property: '温', flavor: '辛', meridian: '心脾胃',
+    effect: '温中散寒、开胃消食',
+    nutrition: '维生素C含量极高（每100g含144mg，是柠檬的3倍），富含辣椒素、维生素A。',
+    pairing: '宜配鸡蛋（营养互补）、牛肉（补铁增香）、土豆（口感柔和）。急火快炒保留维C。',
+    mechanism: '《本草纲目》："青椒，味辛性热，温中散寒。"辣椒素可刺激胃液分泌、促进食欲。维生素C含量为蔬菜之冠，强效抗氧化，促进铁吸收。',
+    suitable: ['yangxu', 'qixu', 'xueyu'], avoid: ['yinxu', 'shire'], suggestion: '阴虚火旺及目疾者少食'
+  },
+  {
+    name: '佛手瓜', type: '蔬菜', property: '平', flavor: '甘', meridian: '脾胃',
+    effect: '疏肝理气、健脾和中',
+    nutrition: '低热量（每100g仅16kcal），富含维生素C、钾、膳食纤维、锌。',
+    pairing: '宜配瘦肉（平衡营养）、胡萝卜（增色增香）、木耳（清肠排毒）。清炒或煮汤皆宜。',
+    mechanism: '《滇南本草》："佛手瓜理气和中，疏肝解郁。"其含有的挥发油成分可舒缓平滑肌痉挛。高钾低钠特性有助调节血压，膳食纤维促进肠道健康。',
+    suitable: ['qiyu', 'qixu', 'pinghe'], avoid: [], suggestion: '一般人群皆可食用'
+  },
+  {
+    name: '金桔', type: '果品', property: '温', flavor: '甘酸', meridian: '肺胃',
+    effect: '理气解郁、化痰止咳',
+    nutrition: '富含维生素C（每100g含43mg）、金桔苷、挥发油、膳食纤维。果皮营养高于果肉。',
+    pairing: '宜配蜂蜜（润肺止咳经典）、冰糖（缓酸增甜）、姜（增强散寒）。连皮食用效果最佳。',
+    mechanism: '《本草纲目》："金桔下气快膈，止渴解酲。"金桔苷可舒张支气管，缓解咳嗽。挥发油促进消化液分泌，行气消胀。果皮中柠檬烯含量丰富，具有抗炎活性。',
+    suitable: ['qiyu', 'yangxu', 'tanshi'], avoid: ['yinxu'], suggestion: '阴虚燥咳者不宜'
+  },
+  {
+    name: '灵芝', type: '药材', property: '平', flavor: '甘', meridian: '心肺肝肾',
+    effect: '补气安神、止咳平喘',
+    nutrition: '富含灵芝多糖、三萜类化合物（灵芝酸）、腺苷、有机锗。',
+    pairing: '宜配鸡肉（补气增效）、红枣（养血安神）、枸杞（滋补肝肾）。炖汤或泡水皆宜。',
+    mechanism: '《神农本草经》列灵芝为上品，"主胸中结，益心气，补中"。灵芝多糖调节免疫、抗肿瘤。三萜类化合物（灵芝酸）可抑制组胺释放，改善过敏与哮喘。',
+    suitable: ['qixu', 'tebing', 'pinghe'], avoid: ['shire'], suggestion: '湿热体质不宜；手术前后一周停用'
+  },
+  {
+    name: '苹果', type: '果品', property: '凉', flavor: '甘酸', meridian: '脾胃',
+    effect: '生津润肺、除烦解暑',
+    nutrition: '富含果胶、维生素C（每100g含4mg）、钾、槲皮素。每日一苹果医生远离我。',
+    pairing: '宜配燕麦（降脂早餐）、肉桂（温中调味）、胡萝卜（护眼果汁）。带皮食用更佳。',
+    mechanism: '《食疗本草》："苹果主补中焦诸不足。"果胶促进肠道有益菌增殖、调节血脂。槲皮素是强效抗炎黄酮类物质，可保护心脑血管。',
+    suitable: ['yinxu', 'shire', 'pinghe'], avoid: ['yangxu'], suggestion: '胃寒者宜蒸煮后食用'
+  },
+  {
+    name: '香蕉', type: '果品', property: '寒', flavor: '甘', meridian: '肺大肠',
+    effect: '清热润肠、降血压',
+    nutrition: '富含钾（每100g含256mg）、镁、维生素B6、色氨酸。碳水含量高（22g/100g）。',
+    pairing: '宜配牛奶（安神助眠）、燕麦（能量早餐）、蜂蜜（润肠通便）。运动前后食用佳。',
+    mechanism: '《本草求原》："香蕉止渴润肠。"高钾低钠特性有助排出多余钠离子、辅助降压。色氨酸在体内转化为血清素和褪黑素，改善情绪与睡眠。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu', 'tanshi'], suggestion: '脾胃虚寒及痰湿体质少食'
+  },
+  {
+    name: '牛奶', type: '乳品', property: '平', flavor: '甘', meridian: '心肺胃',
+    effect: '补虚损、益肺胃、生津润肠',
+    nutrition: '富含优质蛋白（每100g含3g）、钙（104mg）、磷、维生素D、B2。天然钙源首选。',
+    pairing: '宜配燕麦（营养早餐）、蜂蜜（安神助眠）、红枣（补血调饮）。睡前温饮安神。',
+    mechanism: '《滇南本草》："牛奶补虚弱，止渴养心血。"乳清蛋白含全部必需氨基酸，生物利用率高。钙磷比例（1.3:1）接近人体骨骼组成，吸收率优于植物钙。',
+    suitable: ['yinxu', 'qixu', 'pinghe'], avoid: ['tanshi'], suggestion: '乳糖不耐受者可选酸奶或舒化奶'
+  },
+  {
+    name: '豆腐', type: '豆制品', property: '凉', flavor: '甘', meridian: '脾胃大肠',
+    effect: '清热润燥、补中益气',
+    nutrition: '富含优质植物蛋白（每100g含8g）、钙（140mg，石膏豆腐更佳）、大豆异黄酮。',
+    pairing: '宜配海带（碘钙互补）、鱼虾（蛋白协同）、香菇（增鲜提味）。搭配动物蛋白提升吸收。',
+    mechanism: '《本草纲目》："豆腐清热散血，和脾胃。"大豆异黄酮双向调节雌激素，预防骨质疏松。石膏豆腐含钙量是内酯豆腐的3倍，补钙首选。',
+    suitable: ['shire', 'yinxu', 'pinghe'], avoid: ['yangxu', 'tanshi'], suggestion: '痛风急性期及脾胃虚寒者少食'
+  },
+  {
+    name: '白菜', type: '蔬菜', property: '平', flavor: '甘', meridian: '肠胃',
+    effect: '清热除烦、通利肠胃',
+    nutrition: '低热量（每100g仅16kcal），富含维生素C、K、膳食纤维、叶酸。含水量95%。',
+    pairing: '宜配豆腐（清热搭档）、猪肉（均衡营养）、粉丝（经典炖菜）。腌制泡菜益生菌丰富。',
+    mechanism: '《本草纲目拾遗》："白菜甘温无毒，利肠胃。"含有的吲哚-3-甲醇可促进肝脏解毒酶活性。丰富的膳食纤维促进肠道蠕动，预防便秘。',
+    suitable: ['shire', 'pinghe'], avoid: ['yangxu'], suggestion: '阳虚泄泻者不宜多食'
+  },
+  {
+    name: '玉米', type: '谷物', property: '平', flavor: '甘', meridian: '脾胃',
+    effect: '调中开胃、利尿消肿',
+    nutrition: '富含膳食纤维（每100g含2.9g）、B族维生素、镁、叶黄素、玉米黄质。',
+    pairing: '宜配排骨（炖汤鲜美）、胡萝卜（营养互补）、青豆（多彩杂蔬）。煮食保留最多营养。',
+    mechanism: '《本草推陈》："玉米调中开胃。"叶黄素和玉米黄质选择性沉积于黄斑区，保护视力。不溶性膳食纤维促进肠道蠕动，预防肠癌。',
+    suitable: ['qixu', 'tanshi', 'pinghe'], avoid: ['qiyu'], suggestion: '胃动力弱者宜煮粥食用'
+  },
+  {
+    name: '茄子', type: '蔬菜', property: '凉', flavor: '甘', meridian: '脾胃大肠',
+    effect: '清热活血、消肿止痛',
+    nutrition: '富含花青素（紫茄皮）、维生素P（芦丁）、膳食纤维。每100g仅22kcal。',
+    pairing: '宜配蒜（杀菌提味）、青椒（维C互促）、豆角（经典家常组合）。蒸茄子最利健康。',
+    mechanism: '《本草纲目》："茄子散血消肿。"维生素P（芦丁）可增强毛细血管弹性，辅助降血压。紫茄皮中花青素抗氧化能力是维生素C的20倍。',
+    suitable: ['shire', 'xueyu'], avoid: ['yangxu'], suggestion: '脾胃虚寒者少食，不宜生食'
+  },
+  {
+    name: '丝瓜', type: '蔬菜', property: '凉', flavor: '甘', meridian: '肺胃肝',
+    effect: '清热化痰、凉血通络',
+    nutrition: '富含维生素C（每100g含8mg）、B族维生素、皂苷、丝瓜络多糖。含水量94%。',
+    pairing: '宜配鸡蛋（清热滋润）、豆腐（美白搭档）、虾仁（鲜美补钙）。清炒或煮汤皆宜。',
+    mechanism: '《本草纲目》："丝瓜清热利肠，凉血解毒。"丝瓜络多糖可调节免疫，其独特的网状纤维结构有助缓解乳腺炎。皂苷类成分具有祛痰止咳作用。',
+    suitable: ['shire', 'tanshi', 'yinxu'], avoid: ['yangxu'], suggestion: '脾胃虚寒者宜加姜蒜同炒'
+  },
+  {
+    name: '洋葱', type: '蔬菜', property: '温', flavor: '辛', meridian: '肺胃',
+    effect: '理气和胃、健脾杀菌',
+    nutrition: '富含槲皮素、硫化物、硒、膳食纤维。每100g含蛋白质1.1g、钾147mg。',
+    pairing: '宜配木耳（活血搭档）、牛肉（增香补铁）、鸡蛋（家常经典）。紫皮洋葱营养更佳。',
+    mechanism: '《本草食疗》："洋葱通阳气，散寒邪。"槲皮素具有强抗氧化、抗炎、抗过敏作用。硫化物赋予刺激性气味，可扩张血管、辅助降血压。',
+    suitable: ['yangxu', 'xueyu', 'qixu'], avoid: ['yinxu', 'shire'], suggestion: '阴虚目赤者少食'
+  },
+  {
+    name: '西兰花', type: '蔬菜', property: '凉', flavor: '甘', meridian: '脾胃',
+    effect: '补肾填精、健脑强骨',
+    nutrition: '富含维生素K（每100g含101μg）、C、萝卜硫素、钙、叶酸。营养密度极高。',
+    pairing: '宜配虾仁（蛋白互补）、蒜蓉（增香杀菌）、胡萝卜（多彩抗氧化）。焯水后凉拌最宜。',
+    mechanism: '《食疗本草》："西兰花利五脏，补骨髓。"萝卜硫素是强效抗癌活性物质，可激活肝脏解毒酶。维生素K促进骨钙素合成，与钙协同预防骨质疏松。',
+    suitable: ['yinxu', 'shire', 'pinghe'], avoid: ['yangxu'], suggestion: '甲状腺功能减退者不宜生食'
+  },
+  {
+    name: '西瓜', type: '果品', property: '寒', flavor: '甘', meridian: '心胃膀胱',
+    effect: '清热解暑、利尿除烦',
+    nutrition: '含水量92%，富含番茄红素、维生素C、瓜氨酸。每100g仅30kcal。',
+    pairing: '宜配薄荷（清凉消暑）、蜂蜜（解暑饮品）、盐（补充电解质）。冰镇后食用解暑更佳。',
+    mechanism: '《食疗本草》："西瓜清暑热，解烦渴。"瓜氨酸可在体内转化为精氨酸，促进血管舒张、改善循环。番茄红素含量不输番茄，强效抗氧化。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu', 'qixu'], suggestion: '脾胃虚寒者不宜冰镇食用'
+  },
+  {
+    name: '葡萄', type: '果品', property: '平', flavor: '甘酸', meridian: '肺脾肾',
+    effect: '补气血、强筋骨、利小便',
+    nutrition: '富含花青素（紫葡萄）、白藜芦醇、维生素C、钾。每100g含蛋白质0.5g。',
+    pairing: '宜配核桃（补肾健脑）、酸奶（益生菌组合）、蜂蜜（润燥调味）。洗净连皮食用。',
+    mechanism: '《神农本草经》："葡萄主筋骨湿痹，益气倍力。"白藜芦醇激活SIRT1长寿基因，延缓衰老。花青素保护血管内皮，改善微循环。',
+    suitable: ['qixu', 'yinxu', 'pinghe'], avoid: ['tanshi'], suggestion: '糖尿病及痰湿体质少食'
+  },
+  {
+    name: '桃子', type: '果品', property: '温', flavor: '甘酸', meridian: '肺大肠',
+    effect: '补中益气、养阴生津',
+    nutrition: '富含维生素C（每100g含10mg）、钾、膳食纤维、果胶。胡萝卜素较丰富。',
+    pairing: '宜配酸奶（润肠养胃）、蜂蜜（润燥增甜）、银耳（滋阴养颜）。鲜食或制罐头皆宜。',
+    mechanism: '《滇南本草》："桃子通月经，润大肠。"果胶促进肠蠕动，缓解便秘。桃仁含苦杏仁苷，止咳降气。维生素C与多酚协同抗氧化。',
+    suitable: ['yangxu', 'qixu'], avoid: ['yinxu', 'shire'], suggestion: '内热偏盛者不宜多食'
+  },
+  {
+    name: '大葱', type: '蔬菜', property: '温', flavor: '辛', meridian: '肺胃',
+    effect: '发汗解表、通阳散寒',
+    nutrition: '富含硫化物（蒜素）、维生素C、硒、膳食纤维。葱白营养高于葱叶。',
+    pairing: '宜配生姜（辛温解表）、豆豉（经典解表组合）、豆腐（一清一温）。入汤羹调味。',
+    mechanism: '《神农本草经》："葱白主伤寒寒热，出汗。"蒜素（allicin）具有广谱抗菌作用。挥发油刺激汗腺分泌，促进发汗散热，"通阳"即宣通阳气。',
+    suitable: ['yangxu', 'qixu'], avoid: ['yinxu', 'shire'], suggestion: '表虚多汗及阴虚者不宜'
+  },
+  {
+    name: '绿豆芽', type: '蔬菜', property: '凉', flavor: '甘', meridian: '三焦',
+    effect: '清热解暑、利尿消肿',
+    nutrition: '极低热量（每100g仅18kcal），富含维生素C、B族、膳食纤维。发芽后维C增7倍。',
+    pairing: '宜配韭菜（温凉平衡）、鸡蛋（营养互补）、醋（提味增脆）。急火快炒保留脆嫩。',
+    mechanism: '《本草纲目》："绿豆芽解酒毒、热毒。"发芽过程激活多种酶类，营养生物利用度提升。膳食纤维促进肠道蠕动，利尿消肿功效源自其高钾低钠特性。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu', 'qixu'], suggestion: '脾胃虚寒者宜加姜丝同炒'
+  },
+  {
+    name: '绿茶', type: '花茶', property: '微寒', flavor: '甘苦', meridian: '心肺胃',
+    effect: '清热降火、提神醒脑',
+    nutrition: '富含茶多酚（儿茶素占干重30%）、咖啡因、维生素C、氟。抗氧化之王。',
+    pairing: '宜配菊花（清热明目）、薄荷（清凉提神）、蜂蜜（缓苦涩）。80℃冲泡保留营养。',
+    mechanism: '《本草拾遗》："茶苦寒，久食令人瘦。"儿茶素（EGCG）是强效抗氧化剂，清除自由基能力是维生素E的50倍。咖啡因阻断腺苷受体，提神而不致心悸。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu', 'qixu'], suggestion: '胃寒者饭后饮用，忌空腹浓茶'
+  },
+  {
+    name: '醋', type: '调料', property: '温', flavor: '酸苦', meridian: '肝胃',
+    effect: '活血散瘀、消食开胃',
+    nutrition: '富含醋酸、氨基酸、有机酸、钙、钾。酿造醋含益生菌和活性酶。',
+    pairing: '宜配花生（软化血管）、姜（温中调味）、蒜（杀菌协同）。凉拌炖煮皆可入馔。',
+    mechanism: '《本草拾遗》："醋破血瘀，除食积。"醋酸可延缓餐后血糖升高，降低胰岛素波动。柠檬酸促进钙质溶解吸收，有助预防结石形成。',
+    suitable: ['xueyu', 'tanshi'], avoid: ['qixu'], suggestion: '胃酸过多及服药期间慎食'
+  },
+  {
+    name: '豆浆', type: '豆制品', property: '平', flavor: '甘', meridian: '心肺胃',
+    effect: '补虚润燥、清肺化痰',
+    nutrition: '富含优质植物蛋白（每100g含3.3g）、大豆异黄酮、卵磷脂、钙。低脂健康饮品。',
+    pairing: '宜配红枣（补气血）、核桃（健脑增香）、燕麦（饱腹早餐）。自制豆浆营养最佳。',
+    mechanism: '《本草纲目拾遗》："豆浆清肺补胃，润燥化痰。"大豆异黄酮调节雌激素水平，改善更年期不适。卵磷脂中的磷脂酰胆碱是神经递质乙酰胆碱的前体。',
+    suitable: ['qixu', 'yinxu', 'pinghe'], avoid: ['tanshi'], suggestion: '痛风急性期慎饮'
+  },
+  {
+    name: '草莓', type: '果品', property: '凉', flavor: '甘酸', meridian: '肺脾',
+    effect: '润肺生津、健脾和胃',
+    nutrition: '维生素C含量极高（每100g含47mg，超柠檬），富含鞣花酸、花青素、叶酸。',
+    pairing: '宜配酸奶（益生菌组合）、蜂蜜（天然甜味）、燕麦（营养早餐）。鲜食保留全部营养。',
+    mechanism: '《本草纲目》："草莓补脾气，固元气。"鞣花酸抑制致癌物活性，保护细胞DNA。花青素改善微循环，延缓认知衰老。高维C促进胶原蛋白合成。',
+    suitable: ['yinxu', 'shire', 'pinghe'], avoid: ['yangxu'], suggestion: '脾胃虚寒者不宜多食'
+  },
+  {
+    name: '猕猴桃', type: '果品', property: '寒', flavor: '甘酸', meridian: '胃肾',
+    effect: '清热生津、和胃降逆',
+    nutrition: '维生素C含量极高（每100g含92mg，是橙子的2倍），富含钾、膳食纤维、猕猴桃碱。',
+    pairing: '宜配酸奶（润肠组合）、蜂蜜（缓酸调味）、橙子（双重维C）。去皮即食最简。',
+    mechanism: '《食疗本草》："猕猴桃止暴渴，解烦热。"猕猴桃碱可分解蛋白质、促进消化。奇异果蛋白酶具抗炎活性，缓解消化不良。高纤维促进肠道蠕动，预防便秘。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu', 'qixu'], suggestion: '脾胃虚寒便溏者不宜'
   }
 ]
 

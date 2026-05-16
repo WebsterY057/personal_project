@@ -188,6 +188,7 @@
             <div class="chip active" data-filter="all" onclick="filterFoods('all')">全部</div>
             <div class="chip" data-filter="suitable" onclick="filterFoods('suitable')">✅ 宜食</div>
             <div class="chip" data-filter="avoid" onclick="filterFoods('avoid')">❌ 慎食</div>
+            <div class="chip" data-filter="favorite" onclick="filterFoods('favorite')">⭐ 收藏</div>
           </div>
           <div class="filter-chips" id="propertyFilterChips" style="margin-top:6px;">
             <div class="chip active" data-prop="all" onclick="filterByProperty('all')">温寒不限制</div>
@@ -196,6 +197,16 @@
             <div class="chip" data-prop="平" onclick="filterByProperty('平')">⚪ 平</div>
             <div class="chip" data-prop="凉" onclick="filterByProperty('凉')">❄️ 凉</div>
             <div class="chip" data-prop="寒" onclick="filterByProperty('寒')">❄️ 寒</div>
+          </div>
+          <div class="filter-chips" id="meridianFilterChips" style="margin-top:6px;">
+            <div class="chip active" data-meridian="all" onclick="filterByMeridian('all')">归经不限</div>
+            <div class="chip" data-meridian="心" onclick="filterByMeridian('心')">心</div>
+            <div class="chip" data-meridian="肝" onclick="filterByMeridian('肝')">肝</div>
+            <div class="chip" data-meridian="脾" onclick="filterByMeridian('脾')">脾</div>
+            <div class="chip" data-meridian="肺" onclick="filterByMeridian('肺')">肺</div>
+            <div class="chip" data-meridian="肾" onclick="filterByMeridian('肾')">肾</div>
+            <div class="chip" data-meridian="胃" onclick="filterByMeridian('胃')">胃</div>
+            <div class="chip" data-meridian="大肠" onclick="filterByMeridian('大肠')">大肠</div>
           </div>
         </div>
         <div id="foodResults">
@@ -241,6 +252,11 @@
           <div class="menu-item" onclick="showWorkoutNutrition()">
             <span class="mi-icon">🏃</span>
             <span class="mi-text">运动营养</span>
+            <span class="mi-arrow">›</span>
+          </div>
+          <div class="menu-item" onclick="switchTab('viewFoodSearch', document.querySelector('.tab-item[data-view=\"viewFoodSearch\"]'));filterFoods('favorite')">
+            <span class="mi-icon">⭐</span>
+            <span class="mi-text">我的收藏</span>
             <span class="mi-arrow">›</span>
           </div>
           <div class="menu-item" onclick="toggleTheme()">
