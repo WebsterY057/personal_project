@@ -1,4 +1,4 @@
-const { RECIPES, CONSTITUTIONS } = require('../../common/data')
+const { RECIPES, CONSTITUTIONS } = require('../../common/data_full')
 
 Page({
   data: {

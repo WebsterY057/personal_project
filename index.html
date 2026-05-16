@@ -266,6 +266,11 @@
             <span class="mi-text">运动营养</span>
             <span class="mi-arrow">›</span>
           </div>
+          <div class="menu-item" onclick="switchTab('viewStories', document.querySelector('.tab-item[data-view=\"viewProfile\"]'))">
+            <span class="mi-icon">📜</span>
+            <span class="mi-text">中药故事</span>
+            <span class="mi-arrow">›</span>
+          </div>
           <div class="menu-item" onclick="showFavoritesView()">
             <span class="mi-icon">⭐</span>
             <span class="mi-text">我的收藏</span>
@@ -301,6 +306,15 @@
         </div>
         <div class="filter-chips" id="recipeConstiChips"></div>
         <div id="recipeResults"></div>
+      </div>
+
+      <!-- ========== STORIES ========== -->
+      <div class="view" id="viewStories">
+        <div class="card">
+          <div class="card-title">📜 中药故事</div>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">古人的智慧 · 药中的传奇</p>
+          <div id="storiesList"></div>
+        </div>
       </div>
 
     </div>

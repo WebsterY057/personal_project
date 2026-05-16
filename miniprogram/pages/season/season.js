@@ -1,5 +1,5 @@
 const app = getApp()
-const { getConstitutionById } = require('../../common/data')
+const { getConstitutionById } = require('../../common/data_full')
 
 const SEASONS = [
   {

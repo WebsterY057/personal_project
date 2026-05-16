@@ -1662,3 +1662,12 @@ const HERB_STORIES = [
   { id: 10, herb: '茯苓', title: '茯苓为苏轼解湿', summary: '苏东坡被贬海南，以茯苓粥解瘴气湿毒', story: '北宋绍圣年间，苏东坡被贬儋州（今海南）。当地瘴气弥漫、湿气极重，东坡初到时浑身沉重、大便溏稀。当地黎族百姓教他以山中野生茯苓炖粥食用。东坡连食月余，湿去身轻。他在《茯苓赋》中写道："面有玉色，食之能轻身。"并记载茯苓"肉白而实，味甘淡，久服安魂养神，不饥延年"。茯苓味甘淡性平，归心脾肾经，有利水渗湿、健脾宁心的功效。不分四季、不分寒热，与其他药材配伍均可增强祛湿效果，故有"四时神药"之称。', lesson: '茯苓健脾祛湿不伤正，长期脾虚湿盛者宜煮粥或泡水常服', source: '苏轼《茯苓赋》·《神农本草经》', relatedHerbs: ['茯苓', '薏米', '山药'] },
   { id: 11, herb: '甘草', title: '甘草国老之誉', summary: '陶弘景称甘草为"众药之王"，处处不离它', story: '南朝梁代著名医家陶弘景在《本草经集注》中赞誉甘草："此草最为众药之主，经方少有不用者。"因甘草能调和诸药、解百药之毒，被尊为"国老"（即帝王之师）。民间传说有兄弟二人，兄郎中行医，弟农夫耕田。一日弟误服有毒野草腹痛欲死，兄急取甘草煎汤灌服，弟得以脱险。此后甘草成为家家户户必备之解毒良药。现代研究表明甘草含甘草酸和甘草苷，具有抗炎、抗过敏、保肝、解毒作用，可用于缓解药物毒性、保护胃黏膜。', lesson: '甘草调和诸药、缓解药性。日常可用甘草泡水护胃，但高血压患者不宜长期服用', source: '《本草经集注》·陶弘景', relatedHerbs: ['甘草', '小麦', '大枣'] }
 ]
+
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    CONSTITUTIONS, CONSTITUTION_QUESTIONS, FOOD_DATABASE, RECIPES,
+    FITNESS_WORKOUTS, SOLAR_TERMS, SYMPTOM_KEYWORDS, HERB_STORIES,
+    getConstitutionById, calculateResult, getCurrentSolarTerm
+  }
+}

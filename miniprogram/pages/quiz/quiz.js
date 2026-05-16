@@ -1,5 +1,5 @@
 const app = getApp()
-const { CONSTITUTION_QUESTIONS, SYMPTOM_KEYWORDS } = require('../../common/data')
+const { CONSTITUTION_QUESTIONS, SYMPTOM_KEYWORDS } = require('../../common/data_full')
 
 Page({
   data: {

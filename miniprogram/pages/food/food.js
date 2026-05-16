@@ -1,4 +1,4 @@
-const { FOOD_DATABASE, getConstitutionById } = require('../../common/data')
+const { FOOD_DATABASE, getConstitutionById } = require('../../common/data_full')
 
 Page({
   data: {

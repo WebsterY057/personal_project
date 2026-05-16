@@ -1,4 +1,4 @@
-const { CONSTITUTIONS, getConstitutionById } = require('../../common/data')
+const { CONSTITUTIONS, getConstitutionById } = require('../../common/data_full')
 
 Page({
   data: {

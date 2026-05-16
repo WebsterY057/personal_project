@@ -1,5 +1,5 @@
 const app = getApp()
-const { CONSTITUTIONS, getConstitutionById } = require('../../common/data')
+const { CONSTITUTIONS, getConstitutionById } = require('../../common/data_full')
 
 Page({
   data: {
@@ -9,6 +9,7 @@ Page({
     menuItems: [
       { icon: '🌱', text: '时令养生', action: 'navigate', url: '/pages/season/season' },
       { icon: '🏃', text: '运动营养', action: 'navigate', url: '/pages/workout/workout' },
+      { icon: '📜', text: '中药故事', action: 'navigate', url: '/pages/stories/stories' },
       { icon: '🎨', text: '主题切换', action: 'theme' },
       { icon: '🗑️', text: '重置身体数据', action: 'reset' },
       { icon: '⭐', text: '收藏列表', action: 'favorites' }

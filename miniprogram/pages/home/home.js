@@ -1,5 +1,5 @@
 const app = getApp()
-const { CONSTITUTIONS, getConstitutionById } = require('../../common/data')
+const { CONSTITUTIONS, getConstitutionById } = require('../../common/data_full')
 
 const FOODS = [
   '山药','红枣','枸杞','银耳','薏米','莲子','小米','南瓜',

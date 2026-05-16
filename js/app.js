@@ -110,7 +110,8 @@ function showView(viewId) {
     viewSeason: '24节气 · 顺时养生',
     viewProfile: '个人中心',
     viewWorkout: '运动营养方案',
-    viewRecipes: '46道食疗 · 搜索筛选'
+    viewRecipes: '46道食疗 · 搜索筛选',
+    viewStories: '11个经典 · 中医典故'
   }
   const headerTitles = {
     viewHome: '🌿 体质营养',
@@ -121,7 +122,8 @@ function showView(viewId) {
     viewSeason: '📅 时令养生',
     viewProfile: '👤 个人中心',
     viewWorkout: '🏃 运动营养',
-    viewRecipes: '🍳 食疗食谱'
+    viewRecipes: '🍳 食疗食谱',
+    viewStories: '📜 中药故事'
   }
   const sub = document.getElementById('headerSub')
   const title = document.getElementById('appTitle')
@@ -140,7 +142,8 @@ function updateTabBar() {
     viewFoodSearch: 'viewFoodSearch',
     viewProfile: 'viewProfile', viewResult: 'viewQuiz',
     viewSeason: 'viewHome', viewWorkout: 'viewHome',
-    viewRecipes: 'viewRecipes'
+    viewRecipes: 'viewRecipes',
+    viewStories: 'viewProfile'
   }
   const mapped = tabMap[viewId] || 'viewHome'
   document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'))
@@ -179,6 +182,7 @@ function switchTab(viewId, btn) {
   }
   if (viewId === 'viewProfile') renderProfileView()
   if (viewId === 'viewRecipes') renderRecipeView()
+  if (viewId === 'viewStories') renderStoriesView()
 }
 
 // ============ HOME ============
@@ -1469,6 +1473,50 @@ function showRecipeDetail(name) {
         </ol>
       </div>
       <button class="btn btn-sm" style="background:var(--surface);color:var(--primary);border:1px solid var(--border-light);" onclick="copyShoppingList('${name}')">📋 复制购物清单</button>
+    </div>
+  `
+  document.body.appendChild(overlay)
+}
+
+function renderStoriesView() {
+  const container = document.getElementById('storiesList')
+  if (!container) return
+  if (typeof HERB_STORIES === 'undefined') {
+    container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;text-align:center;padding:20px;">数据加载中...</p>'
+    return
+  }
+  container.innerHTML = HERB_STORIES.map(s => `
+    <div class="story-card" onclick="showStoryDetail(${s.id})">
+      <div class="story-herb">${s.herb}</div>
+      <div class="story-title">${s.title}</div>
+      <div class="story-summary">${s.summary}</div>
+      <div class="story-source">📖 ${s.source}</div>
+    </div>
+  `).join('')
+}
+
+function showStoryDetail(id) {
+  const s = HERB_STORIES.find(x => x.id === id)
+  if (!s) return
+  const overlay = document.createElement('div')
+  overlay.className = 'result-reveal-overlay'
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto;'
+  overlay.onclick = e => { if (e.target === overlay) overlay.remove() }
+  overlay.innerHTML = `
+    <div style="background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);padding:24px;max-width:600px;width:100%;max-height:85vh;overflow-y:auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div style="font-size:18px;font-weight:700;">📜 ${s.herb} · ${s.title}</div>
+        <span onclick="this.closest('[style*=\"position:fixed\"]').remove()" style="cursor:pointer;font-size:22px;color:var(--text-muted);">✕</span>
+      </div>
+      <div style="font-size:12px;color:var(--accent);margin-bottom:12px;">${s.source}</div>
+      <div style="font-size:14px;color:var(--text-secondary);line-height:1.9;white-space:pre-wrap;margin-bottom:16px;">${s.story}</div>
+      <div style="background:rgba(76,175,80,0.06);border:1px solid rgba(76,175,80,0.15);border-radius:var(--radius-sm);padding:14px;margin-bottom:12px;">
+        <div style="font-size:12px;color:var(--primary);font-weight:600;margin-bottom:6px;">💡 养生启示</div>
+        <div style="font-size:13px;color:var(--text-secondary);line-height:1.7;">${s.lesson}</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        ${s.relatedHerbs.map(h => `<span style="background:var(--surface);border:1px solid var(--border);padding:4px 12px;border-radius:12px;font-size:12px;color:var(--text-muted);">🌿 ${h}</span>`).join('')}
+      </div>
     </div>
   `
   document.body.appendChild(overlay)

@@ -8,6 +8,7 @@
     "pages/recipes/recipes",
     "pages/season/season",
     "pages/workout/workout",
+    "pages/stories/stories",
     "pages/profile/profile"
   ],
   "window": {

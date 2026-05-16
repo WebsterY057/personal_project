@@ -1,5 +1,5 @@
 const app = getApp()
-const { CONSTITUTION_QUESTIONS, calculateResult, getConstitutionById } = require('../../common/data')
+const { CONSTITUTION_QUESTIONS, calculateResult, getConstitutionById } = require('../../common/data_full')
 
 Page({
   data: {
