@@ -1,0 +1,33 @@
+.page{padding:30rpx}
+.sin{background:var(--surface);border-radius:var(--radius);padding:20rpx 24rpx;font-size:28rpx;width:100%;box-sizing:border-box;color:var(--text)}
+.frow{margin-bottom:12rpx}
+.fscroll{white-space:nowrap}
+.chip{display:inline-block;padding:10rpx 24rpx;margin-right:10rpx;font-size:24rpx;border-radius:20rpx;background:var(--surface);color:var(--text-secondary)}
+.chip.act{background:var(--primary);color:#fff}
+.rlist{margin-top:16rpx}
+.rcard{background:var(--bg-card);border-radius:var(--radius);padding:20rpx;margin-bottom:16rpx}
+.rch{display:flex;justify-content:space-between;align-items:center}
+.rn{font-size:30rpx;font-weight:bold}
+.re{font-size:26rpx;color:var(--text-secondary);margin:8rpx 0;display:block}
+.rtags{margin:8rpx 0;display:flex;flex-wrap:wrap;gap:8rpx}
+.rtag{font-size:22rpx;color:var(--primary);background:rgba(76,175,80,.12);border-radius:10rpx;padding:4rpx 12rpx}
+.rinfo{font-size:22rpx;color:var(--text-muted);display:flex;gap:20rpx}
+.fav{font-size:36rpx;color:var(--text-muted)}
+.fav.faved{color:#FF5252}
+.empty{color:var(--text-muted);font-size:28rpx;text-align:center;padding:60rpx 0}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:100}
+.modal{background:var(--bg);border-radius:var(--radius);margin:120rpx 30rpx;padding:30rpx;max-height:70vh;overflow-y:auto}
+.modal-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:20rpx}
+.modal-title{font-size:32rpx;font-weight:bold}
+.modal-close{font-size:36rpx;color:var(--text-muted);padding:10rpx}
+.modal-bd{max-height:60vh;overflow-y:auto}
+.ms{margin-bottom:20rpx;font-size:26rpx;color:var(--text-secondary);line-height:1.5}
+.ml{font-weight:bold;color:var(--text);display:block;margin-bottom:8rpx}
+.ilist{display:flex;flex-wrap:wrap;gap:10rpx;margin-top:8rpx}
+.iitem{background:var(--surface);padding:8rpx 16rpx;border-radius:12rpx;font-size:24rpx}
+.slist{margin-top:8rpx}
+.sitem{display:flex;gap:10rpx;margin-bottom:8rpx;font-size:24rpx}
+.snum{color:var(--primary);font-weight:bold}
+.modal-ft{display:flex;gap:16rpx;margin-top:24rpx}
+.btn{flex:1;height:76rpx;line-height:76rpx;text-align:center;color:#fff;background:var(--primary);border-radius:38rpx;font-size:28rpx}
+.btn-o{background:transparent;border:2rpx solid var(--primary);color:var(--primary)}

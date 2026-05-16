@@ -1,0 +1,44 @@
+<view class="page">
+
+  <view class="profile-header">
+    <view class="avatar">👤</view>
+    <view class="pinfo">
+      <text class="pname">AI中医营养师</text>
+      <text class="pstatus" wx:if="{{userBody}}">{{userBody.gender || '未设置'}} · {{userBody.age || '—'}}岁 · {{userBody.height || '—'}}cm · {{userBody.weight || '—'}}kg</text>
+      <text class="pstatus" wx:else>请先完善身体数据</text>
+    </view>
+  </view>
+
+  <view class="badge" wx:if="{{constitution}}" style="background:{{constitution.color}}20;border:2rpx solid {{constitution.color}}">
+    <text class="bemoji">{{constitution.emoji}}</text>
+    <view class="binfo">
+      <text class="bname">{{constitution.name}}体质</text>
+      <text class="bprinciple">{{constitution.principle}}</text>
+    </view>
+  </view>
+
+  <view class="menu">
+    <view class="mitem" wx:for="{{menuItems}}" wx:key="text" data-action="{{item.action}}" data-url="{{item.url}}" bindtap="handleMenu">
+      <text class="micon">{{item.icon}}</text>
+      <text class="mtext">{{item.text}}</text>
+      <text class="marrow">›</text>
+    </view>
+  </view>
+
+  <view class="favorites" wx:if="{{favoritesExpanded}}">
+    <view class="fcard" wx:if="{{favoriteFoods.length}}">
+      <text class="ftitle">⭐ 收藏食材</text>
+      <view class="ftags">
+        <text class="tag" wx:for="{{favoriteFoods}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+    <view class="fcard" wx:if="{{favoriteRecipes.length}}">
+      <text class="ftitle">⭐ 收藏食谱</text>
+      <view class="ftags">
+        <text class="tag tag-r" wx:for="{{favoriteRecipes}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+    <text class="fempty" wx:if="{{!favoriteFoods.length && !favoriteRecipes.length}}">暂无收藏内容</text>
+  </view>
+
+</view>

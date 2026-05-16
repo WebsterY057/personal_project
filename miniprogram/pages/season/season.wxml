@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="tabs">
+    <view class="tab {{activeSeason===index?'active':''}}" wx:for="{{seasons}}" wx:key="key" data-index="{{index}}" bindtap="switchSeason" style="{{activeSeason===index?'background:'+item.color:''}}">
+      {{item.emoji}} {{item.label}}
+    </view>
+  </view>
+
+  <view class="banner" style="border-left:6rpx solid {{seasons[activeSeason].color}}">
+    <text class="btitle">{{seasons[activeSeason].emoji}} {{seasons[activeSeason].principle}}</text>
+    <text class="bstip">{{seasons[activeSeason].tip}}</text>
+  </view>
+
+  <view class="card">
+    <text class="ctitle">🍽️ 推荐食谱：{{seasons[activeSeason].recipe.name}}</text>
+    <text class="ceffect">{{seasons[activeSeason].recipe.effect}}</text>
+    <text class="cdetail">{{seasons[activeSeason].recipe.detail}}</text>
+    <view class="ingredients">
+      <text class="ilabel">食材清单：</text>
+      <view class="itags">
+        <text class="tag" wx:for="{{seasons[activeSeason].recipe.ingredients}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+    <button class="copy-btn" data-items="{{seasons[activeSeason].recipe.ingredients}}" bindtap="copyList">📋 复制购物清单</button>
+  </view>
+
+  <view class="card">
+    <text class="ctitle">🥬 当季食材</text>
+    <view class="ftags">
+      <text class="tag tag-f" wx:for="{{seasons[activeSeason].foods}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="constitution-tip" wx:if="{{constitution}}">
+    <text class="ctip-title">{{constitution.emoji}} 体质提示</text>
+    <text class="ctip-text">{{constitution.seasonTip}}</text>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<view class="container">
+  <text class="title">身体信息</text>
+  <text class="subtitle">填写基本信息，获取精准体质分析</text>
+
+  <view class="form-item">
+    <text class="label">性别</text>
+    <picker range="{{genders}}" value="{{gender}}" bindchange="onGenderChange">
+      <view class="picker-value">{{genders[gender]}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <text class="label">年龄</text>
+    <input class="input" type="number" placeholder="请输入年龄" value="{{age}}" bindinput="onAgeInput" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">身高 (cm)</text>
+    <input class="input" type="number" placeholder="请输入身高" value="{{height}}" bindinput="onHeightInput" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">体重 (kg)</text>
+    <input class="input" type="digit" placeholder="请输入体重" value="{{weight}}" bindinput="onWeightInput" />
+  </view>
+
+  <button class="submit-btn" bindtap="submit">提交并查看结果</button>
+</view>

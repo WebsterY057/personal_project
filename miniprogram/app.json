@@ -1,10 +1,33 @@
 {
-  "pages": ["pages/index/index"],
+  "pages": [
+    "pages/home/home",
+    "pages/quiz/quiz",
+    "pages/body/body",
+    "pages/result/result",
+    "pages/food/food",
+    "pages/recipes/recipes",
+    "pages/season/season",
+    "pages/workout/workout",
+    "pages/profile/profile"
+  ],
   "window": {
     "navigationBarTitleText": "AI中医营养师",
     "navigationBarBackgroundColor": "#1A221A",
     "navigationBarTextStyle": "white",
-    "navigationStyle": "custom"
+    "backgroundColor": "#1A221A"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#1A221A",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/home/home", "iconPath": "images/home.png", "selectedIconPath": "images/home_a.png", "text": "首页" },
+      { "pagePath": "pages/quiz/quiz", "iconPath": "images/quiz.png", "selectedIconPath": "images/quiz_a.png", "text": "测试" },
+      { "pagePath": "pages/food/food", "iconPath": "images/food.png", "selectedIconPath": "images/food_a.png", "text": "查询" },
+      { "pagePath": "pages/recipes/recipes", "iconPath": "images/recipes.png", "selectedIconPath": "images/recipes_a.png", "text": "食谱" },
+      { "pagePath": "pages/profile/profile", "iconPath": "images/profile.png", "selectedIconPath": "images/profile_a.png", "text": "我的" }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

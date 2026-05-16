@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="title-section">
+    <text class="ptitle">🏋️ 运动营养指南</text>
+    <text class="psub">根据运动目标定制饮食方案</text>
+  </view>
+
+  <view class="constitution-card" wx:if="{{hasConstitution}}" style="border-left:6rpx solid {{constitution.color}}">
+    <text class="cconame">{{constitution.emoji}} {{constitution.name}}体质运动建议</text>
+    <text class="ccoadvice">{{constitution.fitnessAdvice}}</text>
+    <text class="ccotip">⚠️ {{constitution.exerciseCaution}}</text>
+  </view>
+
+  <view class="workout-list">
+    <view class="wcard" wx:for="{{workouts}}" wx:key="type" style="border-top:6rpx solid {{item.color}}">
+      <view class="wheader">
+        <text class="wemoji">{{item.emoji}}</text>
+        <text class="wtype">{{item.type}}</text>
+      </view>
+      <text class="wtip">💡 {{item.tip}}</text>
+      <text class="wdetail">{{item.detail}}</text>
+      <text class="wprinciple">📋 {{item.principle}}</text>
+      <view class="wfoods">
+        <text class="wflabel">推荐食材：</text>
+        <view class="wftags">
+          <text class="tag" wx:for="{{item.foods}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

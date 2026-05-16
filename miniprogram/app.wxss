@@ -1,5 +1,20 @@
 page {
-  background: #1A221A;
-  height: 100vh;
-  overflow: hidden;
+  --bg: #1A221A;
+  --bg-card: #1E2A1E;
+  --surface: #243024;
+  --text: #E8E8E8;
+  --text-secondary: #C0C0C0;
+  --text-muted: #888;
+  --primary: #4CAF50;
+  --accent: #81C784;
+  --border: #333;
+  --border-light: #444;
+  --warm: #FFB74D;
+  --radius: 16rpx;
+  --radius-sm: 10rpx;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 28rpx;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
 }

@@ -1,0 +1,29 @@
+.page{padding:30rpx}
+.header{background:var(--bg-card);border-radius:var(--radius);padding:30rpx;margin-bottom:20rpx}
+.hi{display:flex;align-items:center;gap:16rpx;margin-bottom:10rpx}
+.emoji{font-size:64rpx}
+.hname{font-size:36rpx;font-weight:bold;color:var(--primary)}
+.hprinciple{font-size:24rpx;color:var(--text-muted)}
+.hdesc{font-size:26rpx;color:var(--text-secondary);line-height:1.5}
+.section{background:var(--bg-card);border-radius:var(--radius);padding:24rpx;margin-bottom:20rpx}
+.stitle{font-size:28rpx;font-weight:bold;margin-bottom:16rpx}
+.srow{display:flex;align-items:center;margin-bottom:14rpx}
+.sname{width:110rpx;font-size:24rpx;color:var(--text-secondary)}
+.strack{flex:1;height:20rpx;background:var(--surface);border-radius:10rpx;margin:0 10rpx;overflow:hidden}
+.sfill{height:100%;border-radius:10rpx}
+.sval{width:50rpx;text-align:right;font-size:24rpx;color:var(--primary)}
+.tbar{white-space:nowrap;background:var(--bg-card);border-radius:var(--radius);padding:16rpx;margin-bottom:20rpx}
+.tab{display:inline-block;padding:12rpx 28rpx;margin-right:12rpx;font-size:26rpx;border-radius:30rpx;background:var(--surface);color:var(--text-secondary)}
+.tab.active{background:var(--primary);color:#fff}
+.content{background:var(--bg-card);border-radius:var(--radius);padding:24rpx;margin-bottom:20rpx;min-height:200rpx}
+.tag{display:inline-block;padding:8rpx 20rpx;border-radius:16rpx;font-size:24rpx;margin:6rpx}
+.tag-g{background:rgba(76,175,80,.15);color:var(--primary)}
+.tag-r{background:rgba(255,82,82,.15);color:#FF5252}
+.ritem{padding:14rpx;border-bottom:1rpx solid var(--border);font-size:26rpx}
+.blk{margin-bottom:16rpx}
+.bl{font-size:26rpx;font-weight:bold;color:var(--primary)}
+.bt{font-size:26rpx;color:var(--text-secondary);line-height:1.6;white-space:pre-wrap}
+.empty{color:var(--text-muted);font-size:26rpx;text-align:center;padding:40rpx 0}
+.actions{display:flex;gap:20rpx;margin-top:20rpx}
+.btn{flex:1;height:80rpx;line-height:80rpx;text-align:center;color:#fff;background:var(--primary);border-radius:40rpx;font-size:28rpx}
+.btn-o{background:transparent;border:2rpx solid var(--primary);color:var(--primary)}

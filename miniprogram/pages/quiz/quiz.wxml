@@ -1,0 +1,30 @@
+<view class="quiz-container" wx:if="{{!showSymptom}}">
+  <view class="progress-bar">
+    <view class="progress-fill" style="width:{{(current+1)/questions.length*100}}%"></view>
+  </view>
+  <text class="progress-text">第 {{current+1}}/{{questions.length}} 题</text>
+
+  <view class="question-area">
+    <text class="question-text">{{questions[current].text}}</text>
+    <view class="options">
+      <view class="option {{selected===idx?'selected':''}}" wx:for="{{questions[current].options}}" wx:key="index" data-idx="{{index}}" bindtap="selectOption">
+        <text class="option-text">{{item.text}}</text>
+        <view class="radio {{selected===idx?'radio-on':''}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="nav-btns">
+    <button class="btn btn-prev" bindtap="goPrev" wx:if="{{current>0}}">上一题</button>
+    <view wx:else></view>
+    <button class="btn btn-next" bindtap="goNext" wx:if="{{current<17 && answers[current]!==-1}}">下一题</button>
+  </view>
+</view>
+
+<view class="symptom-container" wx:if="{{showSymptom}}">
+  <text class="symptom-title">请描述您的不适症状（选填）</text>
+  <textarea class="symptom-input" placeholder="例如：最近容易疲劳，怕冷，手脚冰凉..." value="{{symptomText}}" bindinput="symptomInput"></textarea>
+  <text class="symptom-hint">系统将分析症状关键词辅助判断体质</text>
+  <button class="btn btn-submit" bindtap="submitSymptom">提交并查看结果</button>
+  <button class="btn btn-skip" bindtap="skipSymptom">跳过</button>
+</view>

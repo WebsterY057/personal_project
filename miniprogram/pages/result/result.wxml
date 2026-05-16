@@ -1,0 +1,58 @@
+<view class="page">
+  <view class="header" wx:if="{{constitution}}">
+    <view class="hi">
+      <text class="emoji">{{constitution.emoji}}</text>
+      <view>
+        <text class="hname">{{constitution.name}}</text>
+        <text class="hprinciple">{{constitution.principle}}</text>
+      </view>
+    </view>
+    <text class="hdesc">{{constitution.description}}</text>
+  </view>
+
+  <view class="section">
+    <text class="stitle">体质倾向评分</text>
+    <view class="srow" wx:for="{{topScores}}" wx:key="id">
+      <text class="sname">{{item.name}}</text>
+      <view class="strack"><view class="sfill" style="width:{{item.score/maxScore*100}}%;background:{{item.color}}"></view></view>
+      <text class="sval">{{item.score}}</text>
+    </view>
+  </view>
+
+  <scroll-view class="tbar" scroll-x>
+    <view class="tab {{activeTab===index?'active':''}}" wx:for="{{tabs}}" wx:key="index" data-index="{{index}}" bindtap="switchTab">{{item}}</view>
+  </scroll-view>
+
+  <view class="content">
+    <view wx:if="{{activeTab===0}}">
+      <view wx:if="{{constitution.suitable&&constitution.suitable.length}}"><view class="tag tag-g" wx:for="{{constitution.suitable}}" wx:key="*this">{{item}}</view></view>
+      <view wx:else><text class="empty">无不适宜食材</text></view>
+    </view>
+    <view wx:elif="{{activeTab===1}}">
+      <view wx:if="{{constitution.avoid&&constitution.avoid.length}}"><view class="tag tag-r" wx:for="{{constitution.avoid}}" wx:key="*this">{{item}}</view></view>
+      <view wx:else><text class="empty">无慎食食材</text></view>
+    </view>
+    <view wx:elif="{{activeTab===2}}">
+      <view wx:if="{{constitution.recommendFoods&&constitution.recommendFoods.length}}"><view class="ritem" wx:for="{{constitution.recommendFoods}}" wx:key="*this">🍽️ {{item}}</view></view>
+      <view wx:else><text class="empty">暂无推荐食谱</text></view>
+    </view>
+    <view wx:elif="{{activeTab===3}}">
+      <view class="blk"><text class="bl">调养原则</text><text class="bt">{{constitution.principleDetail}}</text></view>
+      <view class="blk"><text class="bl">体质特征</text><text class="bt">{{constitution.character}}</text></view>
+      <view class="blk"><text class="bl">理论依据</text><text class="bt">{{constitution.evidence}}</text></view>
+    </view>
+    <view wx:elif="{{activeTab===4}}">
+      <view class="blk"><text class="bl">养生建议</text><text class="bt">{{constitution.healthAdvice}}</text></view>
+      <view class="blk"><text class="bl">季节提示</text><text class="bt">{{constitution.seasonTip}}</text></view>
+    </view>
+    <view wx:elif="{{activeTab===5}}">
+      <view class="blk"><text class="bl">运动建议</text><text class="bt">{{constitution.fitnessAdvice}}</text></view>
+      <view class="blk"><text class="bl">注意事项</text><text class="bt">{{constitution.exerciseCaution}}</text></view>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="btn" open-type="share">分享报告</button>
+    <button class="btn btn-o" bindtap="goHome">重新测试</button>
+  </view>
+</view>

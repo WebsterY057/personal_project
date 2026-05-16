@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="search"><input class="sin" placeholder="搜索食材..." bindinput="onSearch" /></view>
+
+  <view class="frow"><scroll-view class="fscroll" scroll-x><view class="chip {{filter===item?'act':''}}" wx:for="{{filters}}" wx:key="*this" data-value="{{item}}" bindtap="setFilter">{{item}}</view></scroll-view></view>
+  <view class="frow"><scroll-view class="fscroll" scroll-x><view class="chip chip2 {{propertyFilter===item?'act':''}}" wx:for="{{properties}}" wx:key="*this" data-value="{{item}}" bindtap="setProperty">{{item}}</view></scroll-view></view>
+  <view class="frow"><scroll-view class="fscroll" scroll-x><view class="chip chip2 {{meridianFilter===item?'act':''}}" wx:for="{{meridians}}" wx:key="*this" data-value="{{item}}" bindtap="setMeridian">{{item}}</view></scroll-view></view>
+
+  <view class="flist">
+    <view wx:if="{{!hasData}}"><text class="empty">完整食材数据请查看H5版</text></view>
+    <view wx:elif="{{filtered.length===0}}"><text class="empty">未找到匹配食材</text></view>
+    <view class="fcard" wx:for="{{filtered}}" wx:key="id" data-id="{{item.id}}" bindtap="toggleCard">
+      <view class="fch">
+        <view>
+          <text class="fn">{{item.name}}</text>
+          <view class="ftags">
+            <text class="ftag" wx:if="{{item.property}}">{{item.property}}</text>
+            <text class="ftag" wx:if="{{item.flavor}}">{{item.flavor}}</text>
+            <text class="ftag" wx:for="{{item.meridian}}" wx:for-item="m" wx:key="*this">{{m}}</text>
+          </view>
+        </view>
+        <view class="fca">
+          <view class="badge {{item.suit==='宜食'?'bg':'br'}}" wx:if="{{item.suit}}">{{item.suit}}</view>
+          <view class="fav {{item.favorite?'faved':''}}" data-id="{{item.id}}" catchtap="toggleFavorite">♡</view>
+        </view>
+      </view>
+      <view class="fbody" wx:if="{{expanded[item.id]}}">
+        <view class="fd" wx:if="{{item.nutrition}}"><text class="fl">营养</text><text>{{item.nutrition}}</text></view>
+        <view class="fd" wx:if="{{item.pairing}}"><text class="fl">搭配</text><text>{{item.pairing}}</text></view>
+        <view class="fd" wx:if="{{item.mechanism}}"><text class="fl">功效</text><text>{{item.mechanism}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>

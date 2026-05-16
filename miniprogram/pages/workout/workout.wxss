@@ -1,0 +1,19 @@
+.page{padding:30rpx}
+.title-section{margin-bottom:24rpx}
+.ptitle{font-size:36rpx;font-weight:700;display:block}
+.psub{font-size:24rpx;color:var(--text-muted);margin-top:6rpx;display:block}
+.constitution-card{background:var(--surface);border-radius:var(--radius);padding:24rpx;margin-bottom:24rpx}
+.cconame{font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx}
+.ccoadvice{font-size:24rpx;color:var(--text-secondary);line-height:1.5;display:block;margin-bottom:6rpx}
+.ccotip{font-size:22rpx;color:var(--warm,#FF9800);display:block}
+.wcard{background:var(--surface);border-radius:var(--radius);padding:28rpx;margin-bottom:20rpx}
+.wheader{display:flex;align-items:center;gap:12rpx;margin-bottom:12rpx}
+.wemoji{font-size:40rpx}
+.wtype{font-size:32rpx;font-weight:700}
+.wtip{font-size:26rpx;color:var(--primary);display:block;margin-bottom:8rpx}
+.wdetail{font-size:24rpx;color:var(--text-secondary);line-height:1.5;display:block;margin-bottom:8rpx}
+.wprinciple{font-size:24rpx;color:var(--text-muted);display:block;margin-bottom:16rpx}
+.wfoods{margin-top:8rpx}
+.wflabel{font-size:24rpx;color:var(--text-secondary);display:block;margin-bottom:8rpx}
+.wftags{display:flex;flex-wrap:wrap;gap:8rpx}
+.tag{display:inline-block;padding:6rpx 18rpx;border-radius:20rpx;font-size:22rpx;background:rgba(76,175,80,.12);color:var(--primary)}
