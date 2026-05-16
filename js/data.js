@@ -1024,6 +1024,86 @@ const FOOD_DATABASE = [
     pairing: '宜配酸奶（润肠组合）、蜂蜜（缓酸调味）、橙子（双重维C）。去皮即食最简。',
     mechanism: '《食疗本草》："猕猴桃止暴渴，解烦热。"猕猴桃碱可分解蛋白质、促进消化。奇异果蛋白酶具抗炎活性，缓解消化不良。高纤维促进肠道蠕动，预防便秘。',
     suitable: ['shire', 'yinxu'], avoid: ['yangxu', 'qixu'], suggestion: '脾胃虚寒便溏者不宜'
+  },
+  {
+    name: '茼蒿', type: '蔬菜', property: '平', flavor: '甘辛', meridian: '脾胃',
+    effect: '健脾开胃、安神清脑',
+    nutrition: '富含维生素A、C、叶酸、钾、钙。每100g含胡萝卜素2.5mg，膳食纤维1.2g。',
+    pairing: '宜配蒜（增香杀菌）、豆腐（蛋白互补）、肉片（增鲜提味）。火锅烫食最佳。',
+    mechanism: '茼蒿含特殊芳香成分可增进食欲，丰富的叶酸有助调节神经递质。高钾低钠特点辅助控血压。',
+    suitable: ['pinghe', 'qixu'], avoid: ['yinxu'], suggestion: '腹泻者少食'
+  },
+  {
+    name: '油菜', type: '蔬菜', property: '凉', flavor: '甘', meridian: '肝脾',
+    effect: '清热解毒、散血消肿',
+    nutrition: '每100g含钙108mg（媲美牛奶）、维生素C36mg、β-胡萝卜素、叶酸。低热量。',
+    pairing: '宜配香菇（增鲜）、蒜蓉（杀菌提味）、豆腐（补钙双效）。急火快炒保留营养。',
+    mechanism: '油菜含大量钙质且吸收率高，维生素K协同骨骼健康。硫苷类物质具有抗氧化作用。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu'], suggestion: '脾胃虚寒者不宜多食'
+  },
+  {
+    name: '空心菜', type: '蔬菜', property: '寒', flavor: '甘', meridian: '肠胃',
+    effect: '清热凉血、解毒通便',
+    nutrition: '每100g含维生素C47mg、叶酸、钙、镁。膳食纤维含量居蔬菜前列。',
+    pairing: '宜配蒜（去寒性）、腐乳（增味）、虾酱（提鲜）。焯水凉拌最宜夏季。',
+    mechanism: '《广州植物志》："空心菜清热凉血。"含氯原酸抗氧化，粗纤维促进肠道蠕动。碱性食物，调节体内酸碱平衡。',
+    suitable: ['shire'], avoid: ['yangxu', 'qixu'], suggestion: '体寒腹泻者忌食'
+  },
+  {
+    name: '卷心菜', type: '蔬菜', property: '平', flavor: '甘', meridian: '脾胃',
+    effect: '健脾和胃、益肾生髓',
+    nutrition: '富含维生素C（每100g含37mg）、维生素U、叶酸、钾。天然胃黏膜保护剂。',
+    pairing: '宜配番茄（酸甜开胃）、木耳（活血搭档）、肉丝（增鲜）。手撕保留营养。',
+    mechanism: '维生素U（L-谷氨酰胺）可促进胃黏膜修复再生。萝卜硫素具抗癌活性，高温久煮会破坏。',
+    suitable: ['qixu', 'pinghe'], avoid: ['shire', 'tanshi'], suggestion: '甲状腺功能低下者不宜生食'
+  },
+  {
+    name: '茭白', type: '蔬菜', property: '寒', flavor: '甘', meridian: '胃肠',
+    effect: '清热解渴、利湿退黄',
+    nutrition: '每100g含蛋白质1.4g、膳食纤维1.8g、钾。低脂低热量水生蔬菜。',
+    pairing: '宜配肉丝（荤素互补）、木耳（增色同步）、酱油（提鲜）。清炒凉拌皆宜。',
+    mechanism: '茭白性寒清热，富含膳食纤维促进代谢。草酸含量较高（烹调前焯水可去除大半）。',
+    suitable: ['shire'], avoid: ['yangxu', 'qixu'], suggestion: '肾结石患者慎食，建议焯水后烹饪'
+  },
+  {
+    name: '杏鲍菇', type: '菌菇', property: '平', flavor: '甘', meridian: '脾胃',
+    effect: '健脾开胃、降脂润肠',
+    nutrition: '每100g含蛋白质2.6g、膳食纤维2.1g、钾、磷、锌。低脂低热量。',
+    pairing: '宜配青椒（增色）、牛肉（鲜香组合）、黑胡椒（经典调味）。煎炒炖汤皆可。',
+    mechanism: '杏鲍菇多糖增强免疫，β-葡聚糖调节胆固醇代谢。独特杏仁香气来自苯甲醛，可增进食欲。',
+    suitable: ['pinghe', 'tanshi'], avoid: [], suggestion: '菌菇过敏者忌食'
+  },
+  {
+    name: '生菜', type: '蔬菜', property: '凉', flavor: '甘', meridian: '肠胃',
+    effect: '清热利尿、安神助眠',
+    nutrition: '每100g含维生素C18mg、叶酸、β-胡萝卜素。含水量95%以上，低热量。',
+    pairing: '宜配蚝油（经典粤式）、蒜蓉（杀菌增香）、沙拉醋（低脂调味）。生食保留全部营养。',
+    mechanism: '生菜含莴苣素具镇静安神作用，晚餐食用有助睡眠。高含水量促进新陈代谢。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu'], suggestion: '生食需彻底清洗'
+  },
+  {
+    name: '油麦菜', type: '蔬菜', property: '凉', flavor: '甘', meridian: '脾胃',
+    effect: '清热润肺、通便利尿',
+    nutrition: '每100g含维生素C20mg、胡萝卜素1.5mg、钙70mg、铁。营养价值高于生菜。',
+    pairing: '宜配蒜（平衡寒性）、豆豉（增香）、蚝油（提鲜）。急火快炒口感脆嫩。',
+    mechanism: '油麦菜含类黄酮化合物抗氧化，膳食纤维促进排便。富含镁元素有助于放松肌肉、改善睡眠。',
+    suitable: ['shire', 'yinxu'], avoid: ['yangxu'], suggestion: '脾胃虚寒者宜加姜蒜同烹'
+  },
+  {
+    name: '茶树菇', type: '菌菇', property: '平', flavor: '甘', meridian: '脾胃',
+    effect: '健脾益气、补肾利尿',
+    nutrition: '每100g（干品）含蛋白质28g、膳食纤维15g、钾、B族维生素、多糖。高蛋白低脂。',
+    pairing: '宜配排骨（煲汤经典）、鸡肉（鲜香倍增）、青椒（炒制搭档）。干品需提前泡发。',
+    mechanism: '茶树菇多糖激活巨噬细胞，增强免疫功能。含丰富的B族维生素促进能量代谢。',
+    suitable: ['qixu', 'tanshi', 'pinghe'], avoid: [], suggestion: '干品需充分泡发，泡发水可用于炖汤'
+  },
+  {
+    name: '木瓜', type: '果品', property: '温', flavor: '甘', meridian: '肝脾胃',
+    effect: '健脾消食、通乳养颜',
+    nutrition: '富含木瓜蛋白酶、维生素C（每100g含61mg）、β-胡萝卜素、钾、叶酸。',
+    pairing: '宜配牛奶（经典甜品）、银耳（养颜组合）、排骨（煲汤）。产后通乳佳品。',
+    mechanism: '《本草纲目》："木瓜去湿和胃，滋脾益肺。"木瓜蛋白酶分解蛋白质助消化，效力是菠萝蛋白酶的3倍。番木瓜碱有助通乳。',
+    suitable: ['qixu', 'tanshi'], avoid: ['yinxu'], suggestion: '孕妇忌食未成熟木瓜'
   }
 ]
 
