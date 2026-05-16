@@ -66,6 +66,11 @@
             <span class="label">健康评测</span>
             <span class="sublabel">体质分析</span>
           </div>
+          <div class="feature-item" onclick="showWorkoutNutrition()">
+            <span class="icon">🏃</span>
+            <span class="label">运动营养</span>
+            <span class="sublabel">饮食方案</span>
+          </div>
         </div>
 
         <div class="card">
@@ -142,6 +147,7 @@
           <div class="result-tab" data-tab="recipe" onclick="switchResultTab('recipe')">🍳 食疗方</div>
           <div class="result-tab" data-tab="info" onclick="switchResultTab('info')">📖 调养</div>
           <div class="result-tab" data-tab="health" onclick="switchResultTab('health')">🍃 养生</div>
+          <div class="result-tab" data-tab="fitness" onclick="switchResultTab('fitness')">🏃 运动</div>
         </div>
 
         <div id="resultContent"></div>
@@ -203,6 +209,11 @@
             <span class="mi-text">时令养生</span>
             <span class="mi-arrow">›</span>
           </div>
+          <div class="menu-item" onclick="showWorkoutNutrition()">
+            <span class="mi-icon">🏃</span>
+            <span class="mi-text">运动营养</span>
+            <span class="mi-arrow">›</span>
+          </div>
           <div class="menu-item">
             <span class="mi-icon">❓</span>
             <span class="mi-text">帮助与反馈</span>
@@ -214,6 +225,16 @@
             <span class="mi-arrow">›</span>
           </div>
         </div>
+      </div>
+
+      <!-- ========== WORKOUT NUTRITION ========== -->
+      <div class="view" id="viewWorkout">
+        <div class="card">
+          <div class="card-title">🏃 运动营养方案</div>
+          <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">根据你的体质和目标，推荐最合适的食材搭配</p>
+          <div id="workoutList"></div>
+        </div>
+        <div id="workoutExtra"></div>
       </div>
 
     </div>

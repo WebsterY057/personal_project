@@ -45,7 +45,8 @@ function showView(viewId) {
     viewResult: '体质分析报告',
     viewFoodSearch: '药食同源食材库',
     viewSeason: '应季食疗推荐',
-    viewProfile: '个人中心'
+    viewProfile: '个人中心',
+    viewWorkout: '运动营养方案'
   }
   const headerTitles = {
     viewHome: '🌿 体质营养',
@@ -54,7 +55,8 @@ function showView(viewId) {
     viewResult: '📊 分析报告',
     viewFoodSearch: '🔍 食材查询',
     viewSeason: '📅 时令养生',
-    viewProfile: '👤 个人中心'
+    viewProfile: '👤 个人中心',
+    viewWorkout: '🏃 运动营养'
   }
   const sub = document.getElementById('headerSub')
   const title = document.getElementById('appTitle')
@@ -72,7 +74,7 @@ function updateTabBar() {
     viewHome: 'viewHome', viewQuiz: 'viewQuiz', viewBodyInfo: 'viewQuiz',
     viewFoodSearch: 'viewFoodSearch',
     viewProfile: 'viewProfile', viewResult: 'viewHome',
-    viewSeason: 'viewHome'
+    viewSeason: 'viewHome', viewWorkout: 'viewHome'
   }
   const mapped = tabMap[viewId] || 'viewHome'
   document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'))
@@ -179,6 +181,9 @@ function renderConstitutionSummary() {
         ${userBodyInfo.gender === 'male' ? '男' : '女'} · ${userBodyInfo.age}岁 · ${userBodyInfo.height}cm · ${userBodyInfo.weight}kg · BMI ${bmi}<br>
         <span style="color:${bmi < 18.5 || bmi >= 28 ? '#FF453A' : bmi >= 24 ? '#FF9F0A' : 'var(--accent)'};">${bmiAdvice}</span>
       </div>
+      <div style="font-size:12px;color:var(--primary);font-weight:600;margin:10px 0 6px;">🏃 运动建议</div>
+      <div style="font-size:12px;color:var(--text-secondary);line-height:1.7;">${c.fitnessAdvice}</div>
+      <div style="font-size:12px;color:var(--text-muted);line-height:1.7;margin-top:4px;">⚠️ ${c.exerciseCaution}</div>
     `
   }
 
@@ -478,6 +483,39 @@ function renderResultContent(tab) {
       `
       break
     }
+    case 'fitness': {
+      let userAdvice = ''
+      if (userBodyInfo) {
+        const height = parseFloat(userBodyInfo.height) / 100
+        const weight = parseFloat(userBodyInfo.weight)
+        const bmi = (weight / (height * height)).toFixed(1)
+        userAdvice = `<div class="card" style="border-color:rgba(102,187,106,0.2);background:rgba(102,187,106,0.04);">
+          <div class="card-title">📊 ${userBodyInfo.gender === 'male' ? '男' : '女'} · ${userBodyInfo.age}岁 · BMI ${bmi}</div>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">结合您的体质（${c.name}）和身体数据，为您定制运动养生方案：</p>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-top:6px;">${c.fitnessAdvice}</p>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.7;margin-top:6px;">⚠️ ${c.exerciseCaution}</p>
+        </div>`
+      }
+      container.innerHTML = `
+        ${userAdvice}
+        <div class="card">
+          <div class="card-title">🏃 运动营养饮食方案</div>
+          ${FITNESS_WORKOUTS.map(w => `
+            <div class="workout-card">
+              <div class="wc-type">🏋️ ${w.type}</div>
+              <div class="wc-tip">${w.tip}</div>
+              <div class="wc-foods">
+                ${w.foods.map(f => `<span>${f}</span>`).join('')}
+              </div>
+              <div style="font-size:11px;color:var(--text-muted);line-height:1.6;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
+                ${w.detail}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `
+      break
+    }
   }
 }
 
@@ -660,6 +698,57 @@ function renderProfileView() {
       const c = getConstitutionById(currentResult.id)
       badge.innerHTML = `${c.emoji} ${c.name}`
     }
+  }
+}
+
+// ============ WORKOUT NUTRITION ============
+function showWorkoutNutrition() {
+  showView('viewWorkout')
+  updateTabBar()
+  renderWorkoutView()
+}
+
+function renderWorkoutView() {
+  const list = document.getElementById('workoutList')
+  const extra = document.getElementById('workoutExtra')
+
+  list.innerHTML = FITNESS_WORKOUTS.map(w => `
+    <div class="workout-card">
+      <div class="wc-type">🏋️ ${w.type}饮食</div>
+      <div class="wc-tip">${w.tip}</div>
+      <div class="wc-foods">
+        ${w.foods.map(f => `<span>${f}</span>`).join('')}
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.6;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
+        ${w.detail}
+      </div>
+    </div>
+  `).join('')
+
+  if (currentResult) {
+    const c = getConstitutionById(currentResult.id)
+    extra.innerHTML = `
+      <div class="card">
+        <div class="card-title">🧬 ${c.name} · 运动养生要点</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+          ${c.principle}<br><br>
+          推荐食材：${c.suitable.slice(0, 5).join('、')}
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-title">🏃 运动建议</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">${c.fitnessAdvice}</p>
+        <p style="font-size:12px;color:var(--text-muted);line-height:1.7;margin-top:6px;">⚠️ ${c.exerciseCaution}</p>
+      </div>
+    `
+  } else {
+    extra.innerHTML = `
+      <div class="card" style="text-align:center;">
+        <div class="card-title">🧬 先测体质，再定方案</div>
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">不同体质适合不同的运动养生策略</p>
+        <button class="btn btn-primary btn-sm" onclick="startQuiz()">开始体质测试</button>
+      </div>
+    `
   }
 }
 
