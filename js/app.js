@@ -122,7 +122,7 @@ function updateTabBar() {
   const tabMap = {
     viewHome: 'viewHome', viewQuiz: 'viewQuiz', viewBodyInfo: 'viewQuiz',
     viewFoodSearch: 'viewFoodSearch',
-    viewProfile: 'viewProfile', viewResult: 'viewHome',
+    viewProfile: 'viewProfile', viewResult: 'viewQuiz',
     viewSeason: 'viewHome', viewWorkout: 'viewHome'
   }
   const mapped = tabMap[viewId] || 'viewHome'
@@ -972,6 +972,11 @@ function renderFoodCard(f) {
   const favs = getFavorites()
   const isFav = favs.foods.includes(f.name)
 
+  // Find related recipes
+  const relatedRecipes = Object.entries(RECIPES).filter(([, r]) =>
+    r.ingredients.some(i => i.includes(f.name))
+  ).slice(0, 3)
+
   return `
     <div class="food-result-card">
       <div style="display:flex;justify-content:space-between;align-items:start;">
@@ -995,6 +1000,14 @@ function renderFoodCard(f) {
         <span class="value" style="font-size:12px;line-height:1.7;">${f.mechanism}</span>
       </div>
       <div class="food-detail-row"><span class="label">建议</span><span class="value">${f.suggestion}</span></div>
+      ${relatedRecipes.length > 0 ? `
+        <div class="food-detail-row" style="flex-direction:column;gap:6px;border-top:1px solid var(--border);padding-top:10px;margin-top:4px;">
+          <span class="label" style="width:auto;">🍳 相关食谱</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            ${relatedRecipes.map(([name]) => `<span style="background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:12px;font-size:11px;color:var(--text-secondary);cursor:pointer;" onclick="showRecipeDetail('${name}')">${name}</span>`).join('')}
+          </div>
+        </div>
+      ` : ''}
     </div>
   `
 }
@@ -1279,6 +1292,38 @@ function clearBodyData() {
   const badge = document.getElementById('currentConstiBadge')
   if (badge) badge.innerHTML = ''
   saveAppState()
+}
+
+function showRecipeDetail(name) {
+  const recipe = RECIPES[name]
+  if (!recipe) return
+  const overlay = document.createElement('div')
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;'
+  overlay.onclick = e => { if (e.target === overlay) overlay.remove() }
+  const favs = getFavorites()
+  const isFav = favs.recipes.includes(name)
+  overlay.innerHTML = `
+    <div style="background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);padding:20px;max-width:380px;width:100%;max-height:80vh;overflow-y:auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div style="font-size:18px;font-weight:700;">🍲 ${name}</div>
+        <div style="display:flex;gap:8px;">
+          <span onclick="toggleRecipeFavorite('${name}')" style="cursor:pointer;font-size:22px;color:${isFav ? 'var(--warm)' : 'var(--text-muted)'};">${isFav ? '★' : '☆'}</span>
+          <span onclick="this.closest('[style*=\"position:fixed\"]').remove()" style="cursor:pointer;font-size:22px;color:var(--text-muted);">✕</span>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;line-height:1.6;">
+        <strong>食材：</strong>${recipe.ingredients.join('、')}
+      </div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;line-height:1.7;">
+        <strong>做法：</strong>
+        <ol style="padding-left:18px;margin-top:4px;">
+          ${recipe.steps.map(s => `<li style="margin-bottom:4px;">${s}</li>`).join('')}
+        </ol>
+      </div>
+      <button class="btn btn-sm" style="background:var(--surface);color:var(--primary);border:1px solid var(--border-light);" onclick="copyShoppingList('${name}')">📋 复制购物清单</button>
+    </div>
+  `
+  document.body.appendChild(overlay)
 }
 
 document.addEventListener('DOMContentLoaded', init)

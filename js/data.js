@@ -44,7 +44,7 @@ const CONSTITUTIONS = [
     principle: '温阳补肾，益火之源。',
     principleDetail: '《素问·调经论》："阳虚则外寒。"阳气如天之日，温煦全身。肾为阳气之本，故温阳重在补肾。选辛甘温热之品，春夏季（三伏天）温补效果最佳，顺应"春夏养阳"之理。',
     evidence: '《金匮要略》提出"病痰饮者，当以温药和之"，开温阳法之先河。《扁鹊心书》强调"保命之法，灼艾第一，丹药第二，附子第三"，突出温阳的重要性。',
-    suitable: ['羊肉', '韭菜', '生姜', '肉桂', '核桃', '荔枝', '龙眼', '虾', '小茴香', '牛鞭'],
+    suitable: ['羊肉', '韭菜', '生姜', '肉桂', '核桃', '荔枝', '桂圆', '虾', '小茴香', '牛鞭'],
     avoid: ['西瓜', '梨', '苦瓜', '冬瓜', '绿豆', '螃蟹', '田螺', '绿茶', '冰淇淋'],
     recommendFoods: ['当归生姜羊肉汤', '韭菜炒核桃', '肉桂红糖茶', '姜枣茶', '核桃粥'],
     seasonTip: '春夏养阳，三伏天是温补最佳时机。冬季注意保暖防寒，避免寒湿环境。',
@@ -63,7 +63,7 @@ const CONSTITUTIONS = [
     principleDetail: '《素问·调经论》："阴虚则内热。"阴液如泉，滋润全身。肾阴为一身阴液之本，故滋阴重在补肾养肝。选用甘凉滋润之品，秋冬季（"秋冬养阴"）效果最佳。忌辛温燥烈伤阴之物。',
     evidence: '《医宗必读》："阴虚者，阳必凑之。"阴虚则阳相对偏亢，产生虚火。朱丹溪在《格致余论》中提出"阳常有余，阴常不足"，强调滋阴的重要。',
     suitable: ['银耳', '百合', '梨', '蜂蜜', '鸭肉', '甲鱼', '黑芝麻', '枸杞', '桑葚', '石斛'],
-    avoid: ['羊肉', '狗肉', '辣椒', '花椒', '葱蒜', '韭菜', '荔枝', '龙眼', '煎炸食物'],
+    avoid: ['羊肉', '狗肉', '辣椒', '花椒', '大葱', '大蒜', '韭菜', '荔枝', '桂圆', '煎炸食物'],
     recommendFoods: ['银耳莲子羹', '百合雪梨汤', '枸杞菊花茶', '石斛炖鸭', '黑芝麻糊'],
     seasonTip: '秋冬养阴，秋季最宜滋阴润燥。夏季避暑防汗多伤阴，忌熬夜。',
     healthAdvice: '适合温和活动，如瑜伽、散步、太极。避免大汗淋漓，忌熬夜。饮食宜滋润，多食银耳、百合等。',
@@ -81,7 +81,7 @@ const CONSTITUTIONS = [
     principleDetail: '《证治汇补》："脾虚不运，则水谷不化精微而化为痰湿。"脾主运化水湿，脾虚则湿聚成痰。故治痰先治脾，脾健则痰自消。选用甘淡渗湿之品，忌甘腻生湿之物。',
     evidence: '《丹溪心法》指出："肥白人多痰湿。"《医宗金鉴》："痰饮者，水饮停积也。"叶天士提出"健脾化痰"为治湿大法。现代研究证实，痰湿体质者基础代谢率偏低，脂肪易堆积。',
     suitable: ['薏米', '赤小豆', '冬瓜', '白萝卜', '海带', '茯苓', '陈皮', '荷叶', '山楂', '鲫鱼'],
-    avoid: ['肥肉', '油炸食品', '甜腻点心', '糯米饭', '奶油', '芝士', '冰淇淋', '啤酒'],
+    avoid: ['肥肉', '油炸食品', '甜腻点心', '糯米', '奶油', '芝士', '冰淇淋', '啤酒'],
     recommendFoods: ['薏米赤小豆汤', '冬瓜海带汤', '陈皮普洱茶', '白萝卜炖排骨', '荷叶粥'],
     seasonTip: '长夏（三伏）是祛湿最佳时节。避免潮湿环境，多活动出汗，节制冷饮甜食。',
     healthAdvice: '宜坚持规律活动，通过适量出汗帮助排湿。饮食清淡，少食甜腻厚味。避免久坐，常饮薏米水、陈皮茶。',
@@ -99,7 +99,7 @@ const CONSTITUTIONS = [
     principleDetail: '《医方考》："湿热交蒸，如雾如露。"湿与热结，如油入面，难解难分。治宜清热与利湿并举，使湿去热孤。选用甘寒清利之品，忌辛温助热、甘腻助湿之物。',
     evidence: '《温病条辨》详述湿热病的辨证论治，提出"分消走泄"法。薛生白《湿热病篇》指出："湿热证，始恶寒，后但热不寒，汗出胸痞，舌白，口渴不引饮。"',
     suitable: ['绿豆', '薏米', '苦瓜', '黄瓜', '冬瓜', '西瓜', '莲藕', '芹菜', '菊花', '金银花'],
-    avoid: ['羊肉', '狗肉', '辣椒', '花椒', '生姜', '大蒜', '荔枝', '龙眼', '酒类'],
+    avoid: ['羊肉', '狗肉', '辣椒', '花椒', '生姜', '大蒜', '荔枝', '桂圆', '酒类'],
     recommendFoods: ['绿豆薏米汤', '苦瓜炒蛋', '冬瓜排骨汤', '菊花茶', '凉拌黄瓜'],
     seasonTip: '夏季湿热最重，注意清淡饮食。长夏祛湿清热正当时。忌熬夜，禁酗酒。',
     healthAdvice: '通过适当活动帮助排汗散热，如散步、健身操。饮食清淡，多食绿豆、冬瓜等清热利湿之品。注意皮肤清洁。',
@@ -116,7 +116,7 @@ const CONSTITUTIONS = [
     principle: '活血化瘀，疏通经络。',
     principleDetail: '《素问·脉要精微论》："脉者，血之府也。"血行不畅则瘀滞。气为血帅，气行则血行。故活血先理气，选用辛散温通之品，以达"疏其血气，令其调达"之效。',
     evidence: '《医林改错》为活血化瘀专著，王清任提出"诸病之因，皆由血瘀"。创立血府逐瘀汤等名方。现代医学证实活血化瘀类中药可改善微循环、抑制血小板聚集。',
-    suitable: ['山楂', '黑豆', '洋葱', '大蒜', '生姜', '醋', '红花', '丹参', '桃仁', '木耳'],
+    suitable: ['山楂', '黑豆', '洋葱', '大蒜', '生姜', '醋', '红花', '丹参', '桃仁', '黑木耳'],
     avoid: ['肥肉', '奶油', '油炸食品', '冰淇淋', '冷饮', '浓茶', '咖啡'],
     recommendFoods: ['山楂红糖水', '黑豆活血粥', '洋葱炒木耳', '丹参炖乌鸡', '醋泡花生'],
     seasonTip: '春季宜疏肝活血，冬季注意保暖防寒凝。适度活动促进气血。忌久坐久卧。',
@@ -134,7 +134,7 @@ const CONSTITUTIONS = [
     principle: '疏肝理气，解郁安神。',
     principleDetail: '《素问·举痛论》："百病生于气也。"肝主疏泄，调畅气机。情志不畅则肝气郁结。选用芳香行气之品，"木郁达之"，使气机通畅则郁自解。辅以安神之品以定志。',
     evidence: '《丹溪心法》提出"六郁"学说，以气郁为首。"气血冲和，万病不生，一有怫郁，诸病生焉。"《医宗必读》强调"郁证全在病者能移情易性"，重视心理调适。',
-    suitable: ['玫瑰花', '佛手', '陈皮', '薄荷', '百合', '小麦', '金桔', '山楂', '香蕉', '深海鱼'],
+    suitable: ['玫瑰花', '佛手', '陈皮', '薄荷', '百合', '小麦', '金桔', '山楂', '香蕉', '鲈鱼'],
     avoid: ['咖啡', '浓茶', '白酒', '辛辣刺激食物', '过量糖分'],
     recommendFoods: ['玫瑰花茶', '佛手瓜炒肉', '陈皮薄荷茶', '百合莲子羹', '金桔蜂蜜饮'],
     seasonTip: '春季养肝疏气，多接触自然。秋季防悲秋，保持心情愉悦。宜多社交。',
@@ -386,7 +386,7 @@ const FOOD_DATABASE = [
     suitable: ['qixu', 'yangxu'], avoid: ['shire'], suggestion: '湿热体质少食'
   },
   {
-    name: '绿豆', type: '豆类', property: '寒', flavor: '甘', meridian: '心胃',
+    name: '绿豆', type: '豆制品', property: '寒', flavor: '甘', meridian: '心胃',
     effect: '清热解毒、消暑利水',
     nutrition: '富含蛋白质（每100g含21.6g）、膳食纤维、钾、镁、维生素B1。',
     pairing: '宜配薏米（增强祛湿）、百合（润肺清热）、甘草（缓解寒性）。煮汤不宜加碱破坏营养。',
@@ -394,7 +394,7 @@ const FOOD_DATABASE = [
     suitable: ['shire', 'yinxu'], avoid: ['yangxu', 'qixu'], suggestion: '阳虚怕冷者少食，可加姜片中和'
   },
   {
-    name: '赤小豆', type: '豆类', property: '平', flavor: '甘酸', meridian: '心小肠',
+    name: '赤小豆', type: '豆制品', property: '平', flavor: '甘酸', meridian: '心小肠',
     effect: '利水除湿、解毒排脓',
     nutrition: '富含膳食纤维（每100g含7.5g）、蛋白质、钾、铁、叶酸。',
     pairing: '宜配薏米（经典祛湿组合）、冬瓜（增强利水）、鲫鱼（健脾利水）。',
@@ -418,7 +418,7 @@ const FOOD_DATABASE = [
     suitable: ['xueyu', 'tanshi', 'qiyu'], avoid: ['qixu'], suggestion: '气虚者不宜多食；孕妇慎用'
   },
   {
-    name: '银耳', type: '菌类', property: '平', flavor: '甘', meridian: '肺胃肾',
+    name: '银耳', type: '菌菇', property: '平', flavor: '甘', meridian: '肺胃肾',
     effect: '滋阴润肺、养胃生津',
     nutrition: '富含银耳多糖、膳食纤维、蛋白质、钙、磷、铁。',
     pairing: '宜配百合（增强润肺）、雪梨（滋阴效果加倍）、红枣（补气养颜）。',
@@ -450,7 +450,7 @@ const FOOD_DATABASE = [
     suitable: ['yangxu'], avoid: ['yinxu', 'shire'], suggestion: '阴虚火旺者不宜'
   },
   {
-    name: '黑木耳', type: '菌类', property: '平', flavor: '甘', meridian: '胃大肠',
+    name: '黑木耳', type: '菌菇', property: '平', flavor: '甘', meridian: '胃大肠',
     effect: '益气补血、活血凉血',
     nutrition: '富含铁（每100g含97mg，是猪肝的7倍）、膳食纤维、木耳多糖。',
     pairing: '宜配洋葱（活血效果叠加）、红枣（补血养颜）、山药（健脾养胃）。',
@@ -658,7 +658,7 @@ const FOOD_DATABASE = [
     suitable: ['qixu', 'yinxu', 'pinghe'], avoid: ['tanshi'], suggestion: '感冒发热期间不宜'
   },
   {
-    name: '黑豆', type: '豆类', property: '平', flavor: '甘', meridian: '脾肾',
+    name: '黑豆', type: '豆制品', property: '平', flavor: '甘', meridian: '脾肾',
     effect: '补肾益阴、活血利水',
     nutrition: '富含优质蛋白（每100g含36g）、花青素、膳食纤维、钙、铁。',
     pairing: '宜配乌鸡（补肾增效）、红枣（补血养颜）、海带（软坚散结）。醋泡黑豆更利吸收。',
@@ -666,7 +666,7 @@ const FOOD_DATABASE = [
     suitable: ['qixu', 'xueyu', 'tanshi'], avoid: ['tebing'], suggestion: '消化不良者宜磨浆或煮烂食用'
   },
   {
-    name: '黄豆', type: '豆类', property: '平', flavor: '甘', meridian: '脾胃',
+    name: '黄豆', type: '豆制品', property: '平', flavor: '甘', meridian: '脾胃',
     effect: '健脾宽中、润燥消水',
     nutrition: '富含优质植物蛋白（每100g含35g）、大豆卵磷脂、钙、镁。完全的氨基酸谱。',
     pairing: '宜配猪蹄（胶原蛋白互补）、萝卜（助消化防胀气）、海带（营养协同）。制成豆腐更易消化。',
@@ -1104,6 +1104,182 @@ const FOOD_DATABASE = [
     pairing: '宜配牛奶（经典甜品）、银耳（养颜组合）、排骨（煲汤）。产后通乳佳品。',
     mechanism: '《本草纲目》："木瓜去湿和胃，滋脾益肺。"木瓜蛋白酶分解蛋白质助消化，效力是菠萝蛋白酶的3倍。番木瓜碱有助通乳。',
     suitable: ['qixu', 'tanshi'], avoid: ['yinxu'], suggestion: '孕妇忌食未成熟木瓜'
+  },
+  {
+    name: '党参', type: '药材', property: '平', flavor: '甘', meridian: '肺脾',
+    effect: '补中益气、健脾益肺',
+    nutrition: '富含党参多糖、皂苷、甾醇、多种氨基酸和微量元素。',
+    pairing: '宜配黄芪（经典补气）、红枣（气血双补）、白术（健脾）。炖汤入膳最佳。',
+    mechanism: '《本草从新》："党参补中益气，和脾胃，除烦渴。"党参多糖可增强免疫功能、抗疲劳。其补气之力弱于人参，但胜在平和不燥。',
+    suitable: ['qixu', 'qiyu'], avoid: ['shire'], suggestion: '实热证及气滞者不宜单用'
+  },
+  {
+    name: '鸡肉', type: '禽肉', property: '温', flavor: '甘', meridian: '脾胃',
+    effect: '温中益气、补精填髓',
+    nutrition: '富含优质蛋白（每100g鸡胸肉含31g）、维生素B6、B12、磷、硒。低脂高蛋白。',
+    pairing: '宜配黄芪（补气经典）、红枣（温中补血）、香菇（增鲜提味）。炖汤营养最佳。',
+    mechanism: '《本草纲目》："鸡肉补中益气，添髓补精。"鸡胸肉蛋白含量高于猪肉和牛肉，且脂肪含量最低。鸡汤中的肌肽和肌酸有助恢复体力。',
+    suitable: ['qixu', 'yangxu', 'pinghe'], avoid: ['shire'], suggestion: '感冒发热及湿热体质少食'
+  },
+  {
+    name: '土豆', type: '蔬菜', property: '平', flavor: '甘', meridian: '脾胃',
+    effect: '补气健脾、和胃调中',
+    nutrition: '每100g含蛋白质2g、维生素C27mg、钾、膳食纤维。糖米指数中等。',
+    pairing: '宜配牛肉（经典搭档）、鸡肉（营养互补）、醋（降低升糖反应）。蒸煮优于油炸。',
+    mechanism: '《本草纲目拾遗》："土豆补中益气，健脾胃。"土豆蛋白含多种必需氨基酸。抗性淀粉在冷却后形成，有助肠道菌群健康。',
+    suitable: ['qixu', 'pinghe'], avoid: ['tanshi'], suggestion: '发芽变绿部分含茄碱，不可食用'
+  },
+  {
+    name: '荔枝', type: '果品', property: '温', flavor: '甘酸', meridian: '肝脾',
+    effect: '养血健脾、行气消肿',
+    nutrition: '每100g含维生素C41mg、果糖16g、钾、镁。含丰富花青素。',
+    pairing: '宜配银耳（温凉平衡）、山药（健脾互补）、红枣（养血搭档）。鲜食或制干皆可。',
+    mechanism: '《本草纲目》："荔枝益颜色，通神益智。"荔枝含α-次甲基环丙基甘氨酸，有助调节血糖。花青素抗氧化，延缓衰老。',
+    suitable: ['yangxu', 'qixu'], avoid: ['shire', 'yinxu'], suggestion: '一次不宜超过10颗，糖尿病人慎食'
+  },
+  {
+    name: '螃蟹', type: '水产', property: '寒', flavor: '咸', meridian: '肝肾胃',
+    effect: '清热散血、续筋接骨',
+    nutrition: '每100g含蛋白质14g、锌6mg、硒56μg、维生素A、钙。高蛋白低脂。',
+    pairing: '宜配姜醋（去寒杀菌）、紫苏（解蟹毒）、黄酒（温中）。蒸煮食用。',
+    mechanism: '《本草拾遗》："蟹脚中髓，能续断绝筋骨。"蟹壳中的甲壳素具调节免疫作用。蟹黄富含卵磷脂和DHA。',
+    suitable: ['shire'], avoid: ['yangxu', 'qixu'], suggestion: '孕妇及脾胃虚寒者忌食'
+  },
+  {
+    name: '辣椒', type: '蔬菜', property: '热', flavor: '辛', meridian: '脾胃',
+    effect: '温中散寒、开胃消食',
+    nutrition: '每100g含维生素C144mg（是柠檬的3倍）、维生素A、β-胡萝卜素、辣椒素。',
+    pairing: '宜配蒜（增香杀菌）、豆豉（经典搭配）、生姜（温中协同）。少量调味即可。',
+    mechanism: '辣椒素激活TRPV1受体，促进代谢和燃脂。维生素C含量居蔬菜之首，强效抗氧化。',
+    suitable: ['yangxu'], avoid: ['shire', 'yinxu'], suggestion: '痔疮、胃溃疡及阴虚火旺者忌食'
+  },
+  {
+    name: '花椒', type: '调料', property: '温', flavor: '辛', meridian: '脾胃肾',
+    effect: '温中止痛、祛湿散寒',
+    nutrition: '富含挥发油（柠檬烯、香叶醇）、花椒碱、维生素A、钾。',
+    pairing: '宜配辣椒（麻辣经典）、姜（去腥增香）、盐（基础调味）。入菜前焙香提味。',
+    mechanism: '《本草纲目》："花椒散寒除湿，解郁结。"花椒麻素（羟基-α-山椒素）可刺激唾液分泌、促进食欲。挥发油有抗菌驱虫作用。',
+    suitable: ['yangxu', 'tanshi'], avoid: ['yinxu', 'shire'], suggestion: '阴虚火旺及孕妇慎食'
+  },
+  {
+    name: '茯苓', type: '药材', property: '平', flavor: '甘淡', meridian: '心脾肾',
+    effect: '健脾渗湿、宁心安神',
+    nutrition: '富含茯苓多糖（占干重90%）、三萜类化合物、卵磷脂、钾。',
+    pairing: '宜配白术（健脾经典）、薏米（祛湿增效）、莲子（安神互补）。煮粥煲汤皆宜。',
+    mechanism: '《神农本草经》："茯苓主胸胁逆气，忧恚惊邪，心下结痛。"茯苓多糖增强免疫力，三萜类化合物利尿消肿。其药性平和，利水而不伤正。',
+    suitable: ['tanshi', 'qixu'], avoid: ['yinxu'], suggestion: '阴虚津伤者不宜'
+  },
+  {
+    name: '红花', type: '药材', property: '温', flavor: '辛', meridian: '肝心',
+    effect: '活血通经、祛瘀止痛',
+    nutrition: '富含红花苷、红花醌苷、亚油酸、维生素E。',
+    pairing: '宜配桃仁（活血经典）、当归（补血活血）、川芎（行气增效）。少量入膳。',
+    mechanism: '《本草纲目》："红花活血润燥，止痛散肿。"红花苷抑制血小板聚集，改善微循环。亚油酸有助降低血脂。',
+    suitable: ['xueyu'], avoid: ['qixu'], suggestion: '孕妇及出血倾向者忌用'
+  },
+  {
+    name: '丹参', type: '药材', property: '微寒', flavor: '苦', meridian: '心肝',
+    effect: '活血祛瘀、凉血安神',
+    nutrition: '富含丹参酮（脂溶性）、丹酚酸（水溶性）、丹参素、维生素E。',
+    pairing: '宜配乌鸡（炖汤经典）、山楂（活血增效）、当归（补活结合）。炖汤或泡茶。',
+    mechanism: '《本草纲目》："丹参破宿血，补新血。"丹酚酸B是强效天然抗氧化剂，保护血管内皮。丹参酮IIA具抗炎、抗动脉粥样硬化作用。',
+    suitable: ['xueyu', 'shire'], avoid: ['qixu'], suggestion: '孕妇及出血体质者忌用，不与藜芦同用'
+  },
+  {
+    name: '桃仁', type: '种子', property: '平', flavor: '苦甘', meridian: '肝大肠',
+    effect: '活血祛瘀、润肠通便',
+    nutrition: '富含脂肪油（40-50%）、苦杏仁苷、维生素B1、铁、磷。',
+    pairing: '宜配红花（活血经典）、当归（协同增效）、蜂蜜（润肠组合）。研碎入膳。',
+    mechanism: '《神农本草经》："桃仁主瘀血血闭，邪气。"苦杏仁苷小剂量可舒张血管。脂肪油润滑肠道，软化大便。',
+    suitable: ['xueyu'], avoid: ['qixu'], suggestion: '孕妇忌用，内服不宜过量'
+  },
+  {
+    name: '佛手', type: '果品', property: '温', flavor: '辛苦酸', meridian: '肝脾胃',
+    effect: '疏肝理气、和胃化痰',
+    nutrition: '富含挥发油（柠檬烯）、橙皮苷、维生素C、黄酮类。',
+    pairing: '宜配陈皮（理气增效）、玫瑰花（解郁搭档）、蜂蜜（调味）。泡茶或入菜。',
+    mechanism: '《本草纲目》："佛手煮酒饮，治痰气咳嗽。"柠檬烯具抗炎和抗氧化作用。橙皮苷可降低毛细血管通透性。',
+    suitable: ['qiyu', 'tanshi'], avoid: ['yinxu'], suggestion: '阴虚火旺者不宜多食'
+  },
+  {
+    name: '小麦', type: '谷物', property: '凉', flavor: '甘', meridian: '心脾',
+    effect: '养心安神、益肾敛汗',
+    nutrition: '每100g含蛋白质11.5g、膳食纤维10.6g（全麦）、B族维生素、铁、镁。',
+    pairing: '宜配红枣（养心安神）、百合（清心润燥）、甘草（经典甘麦大枣汤）。全麦为佳。',
+    mechanism: '《本草拾遗》："小麦补虚养气，助五脏。"全麦麸皮中的阿魏酸具抗氧化活性。B族维生素调节神经系统。',
+    suitable: ['qiyu', 'qixu'], avoid: ['shire'], suggestion: '麸质过敏者慎食'
+  },
+  {
+    name: '白术', type: '药材', property: '温', flavor: '甘苦', meridian: '脾胃',
+    effect: '健脾益气、燥湿利水',
+    nutrition: '富含白术多糖、苍术酮、白术内酯、挥发油。',
+    pairing: '宜配黄芪（补气经典）、茯苓（健脾利湿）、党参（益气增效）。煲汤入膳。',
+    mechanism: '《本草汇言》："白术，补脾之药，更无出其右者。"白术多糖促进肠道有益菌增殖。苍术酮具有抗炎保肝作用。',
+    suitable: ['qixu', 'tanshi', 'tebing'], avoid: ['yinxu'], suggestion: '阴虚燥渴及气滞胀满者不宜'
+  },
+  {
+    name: '防风', type: '药材', property: '微温', flavor: '辛甘', meridian: '膀胱肝脾',
+    effect: '祛风解表、胜湿止痛',
+    nutrition: '富含挥发油、色原酮、香豆素、多糖、β-谷甾醇。',
+    pairing: '宜配黄芪（固表经典）、白术（玉屏风散）、荆芥（解表增效）。入汤剂。',
+    mechanism: '《本草纲目》："防风，御也，其功疗风最要。"色原酮类化合物具抗过敏、抗炎作用。多糖增强免疫调节。',
+    suitable: ['tebing', 'tanshi'], avoid: ['yinxu'], suggestion: '阴虚火旺及血虚发痉者不宜'
+  },
+  {
+    name: '太子参', type: '药材', property: '平', flavor: '甘微苦', meridian: '心肺脾',
+    effect: '益气健脾、润肺生津',
+    nutrition: '富含太子参多糖、皂苷、氨基酸（含人体必需8种）、磷、钾。',
+    pairing: '宜配山药（健脾双效）、百合（润肺搭档）、麦冬（生津互补）。小儿调补良药。',
+    mechanism: '《江苏药材志》："太子参补肺气，健脾胃。"多糖调节免疫，皂苷具抗疲劳作用。补气力平和不燥，尤宜儿童及老人。',
+    suitable: ['qixu', 'tebing'], avoid: ['shire'], suggestion: '实热证慎用'
+  },
+  {
+    name: '花生', type: '种子', property: '平', flavor: '甘', meridian: '肺脾',
+    effect: '健脾养胃、润肺化痰',
+    nutrition: '每100g含蛋白质25g、脂肪45g（不饱和脂肪酸占80%）、维生素E、B3、叶酸。',
+    pairing: '宜配醋（经典凉菜）、红枣（养血搭档）、猪蹄（催乳组合）。煮食优于油炸。',
+    mechanism: '《本草拾遗》："花生悦脾和胃，润肺化痰。"白藜芦醇抗氧化、保护心血管。花生四烯酸是大脑发育所需的重要脂肪酸。',
+    suitable: ['qixu', 'pinghe'], avoid: ['tanshi', 'shire'], suggestion: '霉变花生含黄曲霉素，致癌性强，绝对不可食用'
+  },
+  {
+    name: '芒果', type: '果品', property: '凉', flavor: '甘酸', meridian: '肺胃',
+    effect: '益胃止呕、解渴利尿',
+    nutrition: '每100g含维生素C36mg、β-胡萝卜素（芒果黄素）、钾、叶酸。',
+    pairing: '宜配酸奶（口感搭配）、糯米（甜品经典）、西柚（水果拼盘）。鲜食最佳。',
+    mechanism: '《食性本草》："芒果利肺气，止渴。"芒果苷具抗炎、抗氧化活性。高含量的β-胡萝卜素在体内转化为维生素A，保护视力。',
+    suitable: ['yinxu'], avoid: ['tebing'], suggestion: '过敏体质慎食，接触芒果皮可能导致皮炎'
+  },
+  {
+    name: '菠萝', type: '果品', property: '平', flavor: '甘酸', meridian: '脾胃',
+    effect: '清热解暑、消食止泻',
+    nutrition: '每100g含维生素C48mg、锰、菠萝蛋白酶、膳食纤维。',
+    pairing: '宜配猪肉（嫩化肉质）、虾仁（酸甜搭配）、蜂蜜（调味）。盐水浸泡后食用。',
+    mechanism: '菠萝蛋白酶可分解蛋白质、助消化，其抗炎作用有助缓解关节炎。锰元素促进骨骼发育。',
+    suitable: ['shire', 'tanshi'], avoid: ['tebing'], suggestion: '过敏体质慎食，需盐水浸泡去除菠萝蛋白酶'
+  },
+  {
+    name: '大米', type: '谷物', property: '平', flavor: '甘', meridian: '脾胃',
+    effect: '补中益气、健脾养胃',
+    nutrition: '每100g含蛋白质7.4g、碳水化合物77g、B族维生素。粳米补益力优于籼米。',
+    pairing: '宜配小米（互补营养）、红枣（双补气血）、山药（健脾增效）。煮粥养胃首选。',
+    mechanism: '《本草纲目》："粳米，甘凉，得天地中和之气，平和五脏，补益气血。"大米蛋白生物价高于其他谷物，易被人体吸收利用。',
+    suitable: ['qixu', 'pinghe', 'qiyu'], avoid: ['tanshi'], suggestion: '糖尿病人宜选糙米或控制总量'
+  },
+  {
+    name: '香菜', type: '蔬菜', property: '温', flavor: '辛', meridian: '肺胃',
+    effect: '发表透疹、开胃消食',
+    nutrition: '每100g含维生素C48mg、胡萝卜素、钙、钾。挥发油含量丰富。',
+    pairing: '宜配牛肉（去膻增香）、豆腐（提味互补）、凉拌菜（点睛之笔）。建议最后下锅。',
+    mechanism: '《日用本草》："香菜消谷化气，通大小肠。"挥发油成分刺激食欲、促进消化液分泌。天然醛类物质具有抗菌作用。',
+    suitable: ['qixu', 'pinghe'], avoid: ['yinxu'], suggestion: '狐臭及口臭者不宜多食'
+  },
+  {
+    name: '荷叶', type: '花茶', property: '平', flavor: '苦涩', meridian: '肝脾胃',
+    effect: '清暑利湿、升阳止血',
+    nutrition: '富含荷叶碱、槲皮素、莲碱、维生素C、鞣质。',
+    pairing: '宜配绿豆（解暑双效）、山楂（降脂组合）、冬瓜（利水搭档）。干品泡茶或煮粥。',
+    mechanism: '《本草拾遗》："荷叶主血胀腹痛，落胞破血。"荷叶碱可抑制脂肪吸收，槲皮素扩张血管、改善微循环。鞣质具收敛止血作用。',
+    suitable: ['tanshi', 'shire'], avoid: ['qixu'], suggestion: '气血虚弱者不宜长期服用'
   }
 ]
 
