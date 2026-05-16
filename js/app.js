@@ -188,7 +188,16 @@ function showResultView() {
   if (!currentResult) { startQuiz(); return }
   showView('viewResult')
   updateTabBar()
-  renderResultView()
+  const c = getConstitutionById(currentResult.id)
+  document.getElementById('resultEmoji').textContent = c.emoji
+  document.getElementById('resultName').textContent = c.name
+  document.getElementById('resultDesc').textContent = c.description
+  currentResultTab = 'suitable'
+  document.querySelectorAll('.result-tab').forEach(t => t.classList.remove('active'))
+  document.querySelector('.result-tab[data-tab="suitable"]').classList.add('active')
+  renderResultContent('suitable')
+  renderConstitutionSummary()
+  renderScoreBreakdown()
 }
 
 function renderDailyFood() {
@@ -578,6 +587,96 @@ function finishQuiz() {
     updateTabBar()
     saveAppState()
   })
+}
+
+function renderScoreBreakdown() {
+  const container = document.getElementById('scoreBreakdown')
+  if (!container) return
+  if (!currentResult || !currentResult.scores) {
+    container.innerHTML = ''
+    return
+  }
+
+  let scoreHTML = `
+    <div class="card">
+      <div class="card-title">📊 体质倾向评分</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">分值越高，体质倾向越明显</div>
+  `
+
+  currentResult.scores.slice(0, 5).forEach(([id, score]) => {
+    const pc = Math.min(100, Math.max(0, (score + 4) / 8 * 100))
+    const consti = getConstitutionById(id)
+    scoreHTML += `
+      <div style="margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;">
+          <span style="color:var(--text-secondary);">${consti.emoji} ${consti.name}</span>
+          <span style="color:${pc > 50 ? 'var(--primary)' : 'var(--text-muted)'};">${score > 0 ? '+' : ''}${score}</span>
+        </div>
+        <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;">
+          <div style="height:100%;width:${pc}%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:4px;transition:width 0.5s;"></div>
+        </div>
+      </div>
+    `
+  })
+
+  scoreHTML += '</div>'
+  container.innerHTML = scoreHTML
+}
+
+// ============ BODY INFO ============
+function showBodyInfoForm() {
+  showView('viewBodyInfo')
+  updateTabBar()
+
+  if (userBodyInfo) {
+    document.getElementById('bodyGender').value = userBodyInfo.gender || 'male'
+    document.getElementById('bodyAge').value = userBodyInfo.age || ''
+    document.getElementById('bodyHeight').value = userBodyInfo.height || ''
+    document.getElementById('bodyWeight').value = userBodyInfo.weight || ''
+  } else {
+    document.getElementById('bodyGender').value = 'male'
+    document.getElementById('bodyAge').value = ''
+    document.getElementById('bodyHeight').value = ''
+    document.getElementById('bodyWeight').value = ''
+  }
+}
+
+function submitBodyInfo() {
+  const gender = document.getElementById('bodyGender').value
+  const age = document.getElementById('bodyAge').value.trim()
+  const height = document.getElementById('bodyHeight').value.trim()
+  const weight = document.getElementById('bodyWeight').value.trim()
+
+  if (!age || !height || !weight) {
+    document.getElementById('bodyInfoError').textContent = '请填写完整信息'
+    return
+  }
+  if (isNaN(age) || isNaN(height) || isNaN(weight)) {
+    document.getElementById('bodyInfoError').textContent = '请输入有效数字'
+    return
+  }
+  if (height < 100 || height > 250) {
+    document.getElementById('bodyInfoError').textContent = '身高请在100-250cm之间'
+    return
+  }
+  if (weight < 20 || weight > 300) {
+    document.getElementById('bodyInfoError').textContent = '体重请在20-300kg之间'
+    return
+  }
+
+  document.getElementById('bodyInfoError').textContent = ''
+  const info = { gender, age, height, weight }
+  saveBodyInfo(info)
+  finishQuiz()
+}
+
+// ============ RESULT TABS ============
+function switchResultTab(tab) {
+  currentResultTab = tab
+  document.querySelectorAll('.result-tab').forEach(t => t.classList.remove('active'))
+  document.querySelector(`.result-tab[data-tab="${tab}"]`).classList.add('active')
+  renderResultContent(tab)
+  saveAppState()
 }
 
 function renderResultContent(tab) {
