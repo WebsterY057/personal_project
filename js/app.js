@@ -504,9 +504,12 @@ function showFavoritesView() {
     html += foodFavs.map(name => {
       const f = FOOD_DATABASE.find(x => x.name === name)
       if (!f) return ''
-      return `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;">
-        <span>${f.name}</span>
-        <span style="color:var(--text-muted);font-size:11px;">${f.property}性 · ${f.meridian}经</span>
+      return `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span>${f.name}</span>
+          <span style="color:var(--text-muted);font-size:11px;margin-left:8px;">${f.property}性 · ${f.meridian}经</span>
+        </div>
+        <span class="food-star" data-name="${name}" style="cursor:pointer;color:var(--warm);font-size:16px;">★</span>
       </div>`
     }).join('')
   }
@@ -524,7 +527,7 @@ function showFavoritesView() {
   }
 
   if (foodFavs.length === 0 && recipeFavs.length === 0) {
-    html += '<p style="color:var(--text-muted);font-size:13px;padding:20px 0;text-align:center;">还没有收藏内容<br>点击食材或食谱旁的 ☆ 即可收藏</p>'
+    html += '<p style="color:var(--text-muted);font-size:13px;padding:20px 0;text-align:center;">还没有收藏内容<br>点击食材或食谱旁的 ☆ 收藏 · 点击 ★ 取消收藏</p>'
   }
 
   html += '</div>'
