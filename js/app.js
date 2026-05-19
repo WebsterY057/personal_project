@@ -28,8 +28,6 @@ function init() {
   buildRecipeIndex()
   renderConstiList()
   renderSeasonView()
-  renderMiniSeasonBanner()
-  renderDailyFood()
   renderCheckIn()
   renderSolarTerm()
   renderPoetry()
