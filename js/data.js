@@ -1628,11 +1628,15 @@ const SOLAR_TERMS = [
 function getCurrentSolarTerm() {
   const now = new Date()
   const today = (now.getMonth() + 1) * 100 + now.getDate()
-  for (let i = SOLAR_TERMS.length - 1; i >= 0; i--) {
+  let prev = null
+  for (let i = 0; i < SOLAR_TERMS.length; i++) {
     const termDate = SOLAR_TERMS[i].month * 100 + SOLAR_TERMS[i].day
-    if (today >= termDate) return SOLAR_TERMS[i]
+    if (today < termDate) {
+      return prev || SOLAR_TERMS[SOLAR_TERMS.length - 1]
+    }
+    prev = SOLAR_TERMS[i]
   }
-  return SOLAR_TERMS[SOLAR_TERMS.length - 1]
+  return prev
 }
 
 // Symptom keyword → constitution scoring
