@@ -1,0 +1,28 @@
+<view class="page {{_pageClass}}">
+  <view class="hero">
+    <view class="brand-logo">🎁</view>
+    <view class="hero-text">
+      <text class="hero-title">积分兑换</text>
+      <text class="hero-sub">可用积分：<text class="hero-points">{{points}}</text> 分</text>
+    </view>
+  </view>
+
+  <view class="elist">
+    <view class="ecard {{points < item.points ? 'ecard-locked' : ''}}" wx:for="{{rewards}}" wx:key="id" data-points="{{item.points}}" data-link="{{item.link}}" data-name="{{item.name}}" bindtap="redeem">
+      <text class="eemoji">{{item.emoji}}</text>
+      <view class="einfo">
+        <text class="ename">{{item.name}}</text>
+        <text class="edesc">{{item.desc}}</text>
+      </view>
+      <view class="epoints">
+        <text class="ep-num">{{item.points}}</text>
+        <text class="ep-label">积分</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="tip">
+    <text class="tip-icon">💡</text>
+    <text class="tip-text">兑换后下载链接自动复制到剪贴板，粘贴到浏览器打开即可下载</text>
+  </view>
+</view>

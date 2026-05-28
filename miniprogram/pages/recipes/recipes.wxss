@@ -85,7 +85,7 @@
 }
 .modal-title{
   font-size:32rpx;font-weight:bold;
-  font-family:KaiTi/STKaiti;letter-spacing:1rpx;
+  font-family:KaiTi,STKaiti,serif;letter-spacing:1rpx;
   color:var(--accent)
 }
 .modal-close{font-size:36rpx;color:var(--text-muted);padding:10rpx}
