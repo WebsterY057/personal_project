@@ -577,3 +577,6 @@ page.theme-dark,
   color: #fff;
   line-height: 1;
 }
+.brand-logo-icon {
+  width: 52rpx; height: 52rpx;
+}

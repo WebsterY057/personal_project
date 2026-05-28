@@ -1,7 +1,9 @@
 <view class="page {{_pageClass}}">
   <!-- Hero Header -->
   <view class="hero">
-    <view class="brand-logo">🥗</view>
+    <view class="brand-logo">
+      <image class="brand-logo-icon" src="/images/food_a.png" mode="aspectFit"/>
+    </view>
     <view class="hero-text">
       <text class="hero-title">食材查询</text>
       <text class="hero-sub">按体质 · 属性 · 归经筛选</text>

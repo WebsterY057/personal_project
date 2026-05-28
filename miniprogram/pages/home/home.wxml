@@ -92,8 +92,8 @@
         <text class="streak-tag" wx:if="{{streak>0}}">🔥 {{streak}}天</text>
       </view>
     </view>
-<text class="checkin-main" wx:if="{{checkedIn && dailyStory}}">📖 {{dailyStory.title}} — {{dailyStory.herb}}</text>
-<text class="checkin-main" wx:elif="{{checkedIn}}">📖 点击查看今日故事</text>
+<text class="checkin-main" wx:if="{{checkedIn && dailyStory}}">{{dailyStory.title}} — {{dailyStory.herb}}</text>
+<text class="checkin-main" wx:elif="{{checkedIn}}">点击查看今日故事</text>
 <text class="checkin-main" wx:else>点击打卡 · 每日推送</text>
   </view>
 
@@ -213,7 +213,7 @@
       </view>
       <view class="modal-body">
         <view class="guide-content">
-          <text class="guide-emoji">🧬</text>
+          <image class="guide-icon-img" src="/images/quiz_a.png" mode="aspectFit"/>
           <text class="guide-title">先了解您的体质</text>
           <text class="guide-desc">中医将人体体质分为九种，每种体质有不同的饮食调养方式。花2分钟做一个小测试，我们会为您生成个性化的养生方案。</text>
           <view class="guide-steps">

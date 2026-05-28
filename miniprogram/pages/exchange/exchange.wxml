@@ -1,6 +1,8 @@
 <view class="page {{_pageClass}}">
   <view class="hero">
-    <view class="brand-logo">🎁</view>
+    <view class="brand-logo">
+      <image class="brand-logo-icon" src="/images/exchange_a.png" mode="aspectFit"/>
+    </view>
     <view class="hero-text">
       <text class="hero-title">积分兑换</text>
       <text class="hero-sub">可用积分：<text class="hero-points">{{points}}</text> 分</text>
