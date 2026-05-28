@@ -1,40 +1,73 @@
-<view class="page">
-  <view class="search"><input class="sin" placeholder="搜索食谱..." bindinput="onSearch" /></view>
+<view class="page {{_pageClass}}">
+  <!-- Hero Header -->
+  <view class="hero">
+    <view class="brand-logo">🍲</view>
+    <view class="hero-text">
+      <text class="hero-title">食谱搜索</text>
+      <text class="hero-sub">节气养生 · 对症食疗</text>
+    </view>
+  </view>
 
-  <view class="frow"><scroll-view class="fscroll" scroll-x><view class="chip {{filter===item?'act':''}}" wx:for="{{constitutions}}" wx:key="*this" data-value="{{item}}" bindtap="setFilter">{{item}}</view></scroll-view></view>
+  <!-- 搜索框 -->
+  <view class="search-wrap">
+    <text class="si">🔍</text>
+    <input class="sin" placeholder="搜索食谱名称..." bindinput="onSearch" />
+  </view>
 
+  <!-- 体质筛选 -->
+  <view class="frow">
+    <text class="flabel">体质</text>
+    <scroll-view class="fscroll" scroll-x>
+      <view class="chip {{filter===item?'act':''}}" wx:for="{{constitutions}}" wx:key="*this" data-value="{{item}}" bindtap="setFilter">{{item}}</view>
+    </scroll-view>
+  </view>
+
+  <!-- 结果列表 -->
   <view class="rlist">
     <view wx:if="{{!hasData}}"><text class="empty">完整食谱数据请查看H5版</text></view>
     <view wx:elif="{{filtered.length===0}}"><text class="empty">未找到匹配食谱</text></view>
     <view class="rcard" wx:for="{{filtered}}" wx:key="key" data-key="{{item.key}}" bindtap="showRecipe">
       <view class="rch">
-        <text class="rn">{{item.name}}</text>
-        <view class="fav {{item.favorite?'faved':''}}" data-key="{{item.key}}" catchtap="toggleFavorite">♡</view>
-      </view>
-      <text class="re">{{item.effect}}</text>
-      <view class="rtags">
-        <text class="rtag" wx:for="{{item.constitutions}}" wx:key="*this">{{item}}</text>
-      </view>
-      <view class="rinfo">
-        <text>{{item.ingredients?item.ingredients.length:0}}种食材</text>
-        <text>{{item.steps?item.steps.length:0}}个步骤</text>
+        <view class="rci">
+          <text class="remoji">{{item.emoji || '🍽️'}}</text>
+          <view>
+            <text class="rn">{{item.key}}</text>
+            <view class="rinfo">
+              <text>食材×{{item.ingredients?item.ingredients.length:0}}</text>
+              <text>步骤×{{item.steps?item.steps.length:0}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="fav {{item.favorite?'faved':''}}" data-key="{{item.key}}" catchtap="toggleFavorite">{{item.favorite ? '★' : '☆'}}</view>
       </view>
     </view>
   </view>
 
+  <!-- 详情弹窗 -->
   <view class="modal-overlay" wx:if="{{showDetail}}" catchtap="closeModal">
     <view class="modal" catchtap="noop">
       <view class="modal-hd">
-        <text class="modal-title">{{currentRecipe.name}}</text>
+        <text class="modal-title">{{currentRecipe.key}}</text>
         <text class="modal-close" bindtap="closeModal">✕</text>
       </view>
       <view class="modal-bd">
-        <view class="ms"><text class="ml">功效</text><text>{{currentRecipe.effect}}</text></view>
-        <view class="ms"><text class="ml">食材 ({{currentRecipe.ingredients.length}}种)</text>
-          <view class="ilist"><view class="iitem" wx:for="{{currentRecipe.ingredients}}" wx:for-item="ing" wx:key="*this">{{ing}}</view></view>
+        <view class="ms">
+          <text class="ml">🥬 食材 ({{currentRecipe.ingredients.length}}种)</text>
+          <view class="ilist2">
+            <view class="irow" wx:for="{{currentRecipe.ingredients}}" wx:for-item="ing" wx:key="*this">
+              <text class="iname">{{ing}}</text>
+              <text class="ibtn" data-ing="{{ing}}" bindtap="buyIngredient">购买</text>
+            </view>
+          </view>
         </view>
-        <view class="ms"><text class="ml">步骤 ({{currentRecipe.steps.length}}步)</text>
-          <view class="slist"><view class="sitem" wx:for="{{currentRecipe.steps}}" wx:for-item="step" wx:key="*this"><text class="snum">{{index+1}}.</text><text>{{step}}</text></view></view>
+        <view class="ms">
+          <text class="ml">📝 步骤 ({{currentRecipe.steps.length}}步)</text>
+          <view class="slist">
+            <view class="sitem" wx:for="{{currentRecipe.steps}}" wx:for-item="step" wx:key="*this">
+              <text class="snum">{{index+1}}.</text>
+              <text class="step-text">{{step}}</text>
+            </view>
+          </view>
         </view>
       </view>
       <view class="modal-ft">

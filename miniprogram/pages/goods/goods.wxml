@@ -1,0 +1,40 @@
+<view class="page {{_pageClass}}">
+  <view class="hero">
+    <view class="brand-logo">🛒</view>
+    <view class="hero-text">
+      <text class="hero-title">养生好物</text>
+      <text class="hero-sub">体质养生好物 · 甄选品质推荐</text>
+    </view>
+  </view>
+
+  <view class="search-wrap">
+    <text class="si">🔍</text>
+    <input class="sin" placeholder="搜索商品名称..." bindinput="onSearch" />
+  </view>
+
+  <scroll-view class="cat-scroll" scroll-x>
+    <view class="cat {{activeCat===item?'act':''}}" wx:for="{{categories}}" wx:key="*this" data-cat="{{item}}" bindtap="setCategory">{{item}}</view>
+  </scroll-view>
+
+  <view class="glist">
+    <view class="gcard" wx:for="{{filtered}}" wx:key="id" data-link="{{item.link}}" data-name="{{item.name}}" bindtap="buy">
+      <view class="gemoji">{{item.emoji}}</view>
+      <view class="ginfo">
+        <view class="gtop">
+          <text class="gname">{{item.name}}</text>
+          <text class="gtag" wx:if="{{item.tag}}">{{item.tag}}</text>
+        </view>
+        <text class="gdesc">{{item.desc}}</text>
+        <view class="gbottom">
+          <text class="gprice">{{item.price}}</text>
+          <text class="gbtn">立即购买</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tip">
+    <text class="tip-icon">💡</text>
+    <text class="tip-text">点击商品复制购买链接，前往京东/拼多多下单，您可获得推广佣金</text>
+  </view>
+</view>

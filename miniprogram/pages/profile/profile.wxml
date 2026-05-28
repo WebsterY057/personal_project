@@ -42,7 +42,7 @@
   <!-- 我的成就统计卡 -->
   <view class="achievement-card">
     <view class="achievement-header" bindtap="toggleAchievements">
-      <text class="achievement-title">🏆 我的成就</text>
+      <text class="achievement-title">我的成就</text>
       <text class="achievement-toggle">{{achievementsExpanded ? '收起 ∧' : '展开 ∨'}}</text>
     </view>
     <view class="achievement-stats">
@@ -84,7 +84,7 @@
   <!-- 积分兑换 -->
   <view class="redeem-card" wx:if="{{points > 0}}" bindtap="goExchange">
     <view class="redeem-header">
-      <text class="redeem-title">🎁 积分兑换</text>
+      <text class="redeem-title">积分兑换</text>
       <text class="redeem-balance">{{points}} 积分</text>
     </view>
     <text class="redeem-hint">兑换专属食谱·节气手册·调理方案 ›</text>

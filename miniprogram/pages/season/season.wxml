@@ -1,37 +1,89 @@
-<view class="page">
+<view class="page {{_pageClass}}">
+  <!-- 季节 Tab -->
   <view class="tabs">
-    <view class="tab {{activeSeason===index?'active':''}}" wx:for="{{seasons}}" wx:key="key" data-index="{{index}}" bindtap="switchSeason" style="{{activeSeason===index?'background:'+item.color:''}}">
+    <view class="tab {{activeSeason===index?'active':''}}" wx:for="{{seasons}}" wx:key="key" data-index="{{index}}" bindtap="switchSeason" style="{{activeSeason===index?'background:'+item.color+';':''}}">
       {{item.emoji}} {{item.label}}
     </view>
   </view>
 
+  <!-- 定位信息 -->
+  <view class="location-bar" wx:if="{{climateLabel}}">
+    <text class="loc-icon">📍</text>
+    <text class="loc-text">{{climateLabel}} · {{seasonTip}}</text>
+  </view>
+
+  <!-- 养生主旨 Banner -->
   <view class="banner" style="border-left:6rpx solid {{seasons[activeSeason].color}}">
     <text class="btitle">{{seasons[activeSeason].emoji}} {{seasons[activeSeason].principle}}</text>
     <text class="bstip">{{seasons[activeSeason].tip}}</text>
   </view>
 
-  <view class="card">
-    <text class="ctitle">🍽️ 推荐食谱：{{seasons[activeSeason].recipe.name}}</text>
-    <text class="ceffect">{{seasons[activeSeason].recipe.effect}}</text>
-    <text class="cdetail">{{seasons[activeSeason].recipe.detail}}</text>
-    <view class="ingredients">
-      <text class="ilabel">食材清单：</text>
-      <view class="itags">
-        <text class="tag" wx:for="{{seasons[activeSeason].recipe.ingredients}}" wx:key="*this">{{item}}</text>
+  <!-- 推荐食谱列表 -->
+  <view class="section">
+    <view class="section-hd">
+      <text class="sh-title">时令食谱</text>
+      <text class="sh-count">{{seasons[activeSeason].recipeList.length}}道</text>
+    </view>
+    <view class="recipe-list">
+      <view class="rcard" wx:for="{{seasons[activeSeason].recipeList}}" wx:key="name" data-name="{{item.name}}" bindtap="showRecipeDetail">
+        <view class="rcard-l">
+          <text class="rname">{{item.name}}</text>
+          <view class="r-meta">
+            <text class="rmeta">食材×{{item.ingredients.length}}</text>
+            <text class="rmeta">步骤×{{item.steps.length}}</text>
+          </view>
+        </view>
+        <view class="rcard-r">
+          <text class="rarr">›</text>
+        </view>
       </view>
     </view>
-    <button class="copy-btn" data-items="{{seasons[activeSeason].recipe.ingredients}}" bindtap="copyList">📋 复制购物清单</button>
   </view>
 
-  <view class="card">
-    <text class="ctitle">🥬 当季食材</text>
+  <!-- 当季食材 -->
+  <view class="section">
+    <view class="section-hd">
+      <text class="sh-title">当季食材</text>
+    </view>
     <view class="ftags">
       <text class="tag tag-f" wx:for="{{seasons[activeSeason].foods}}" wx:key="*this">{{item}}</text>
     </view>
   </view>
 
+  <!-- 体质提示 -->
   <view class="constitution-tip" wx:if="{{constitution}}">
-    <text class="ctip-title">{{constitution.emoji}} 体质提示</text>
+    <text class="ctip-title">{{constitution.emoji}} {{constitution.name}}体质提示</text>
     <text class="ctip-text">{{constitution.seasonTip}}</text>
+  </view>
+
+  <!-- 食谱详情弹窗 -->
+  <view class="modal-overlay" wx:if="{{showModal}}" catchtap="closeModal">
+    <view class="modal" catchtap="noop">
+      <view class="modal-hd">
+        <text class="modal-title">{{currentRecipe.key}}</text>
+        <text class="modal-close" bindtap="closeModal">✕</text>
+      </view>
+      <view class="modal-bd">
+        <view class="ms">
+          <text class="ml">🥬 食材 ({{currentRecipe.ingredients.length}}种)</text>
+          <view class="ilist">
+            <view class="iitem" wx:for="{{currentRecipe.ingredients}}" wx:for-item="ing" wx:key="*this">{{ing}}</view>
+          </view>
+        </view>
+        <view class="ms">
+          <text class="ml">📝 步骤 ({{currentRecipe.steps.length}}步)</text>
+          <view class="slist">
+            <view class="sitem" wx:for="{{currentRecipe.steps}}" wx:for-item="step" wx:key="*this">
+              <text class="snum">{{index+1}}.</text>
+              <text class="step-text">{{step}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="modal-ft">
+        <button class="btn" data-name="{{currentRecipe.key}}" bindtap="copyRecipe">📋 复制食谱</button>
+        <button class="btn btn-o" bindtap="closeModal">关闭</button>
+      </view>
+    </view>
   </view>
 </view>
